@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const sessionRouter = require('./session.js');
+const usersRouter = require('./users.js');
 const { restoreUser } = require('../../utils/auth.js');
 
 // //Test User Auth Middlewares
@@ -39,13 +41,15 @@ const { restoreUser } = require('../../utils/auth.js');
 
 
 
-            router.post('/test', function(req,res){
-                res.json({
-                    requestBody: req.body
-                })
-            })
 
+router.use(restoreUser);
 
+router.use('/session', sessionRouter);
 
-            router.use(restoreUser);
-            module.exports = router;
+router.use('/users', usersRouter);
+
+router.post('/test', (req, res) => {
+  res.json({ requestBody: req.body });
+});
+
+module.exports = router;
