@@ -11,19 +11,6 @@ const { handleValidationErrors } = require('../../utils/validation')
 
 const router = express.Router();
 
-//sign up
-// router.post(
-//     '/',
-//     async(req, res) => {
-//         const { email, password, username } = req.body
-//         const user = await User.signup({ email, username, password })
-
-//         await setTokenCookie(res, user)
-
-//         return res.json({ user })
-//     }
-// )
-
 const validateSignup = [
     check('email')
       .exists({ checkFalsy: true })
@@ -41,13 +28,28 @@ const validateSignup = [
       .exists({ checkFalsy: true })
       .isLength({ min: 6 })
       .withMessage('Password must be 6 characters or more.'),
+    check('firstName')
+      .exists({checkFalsy: true})
+      .withMessage('Please provide your first name.'),
+    check('firstName')
+      .not()
+      .isEmail()
+      .withMessage('First name cannot be an email.'),
+      check('lastName')
+      .exists({checkFalsy: true})
+      .withMessage('Please provide your last name.'),
+    check('lastName')
+      .not()
+      .isEmail()
+      .withMessage('Last name cannot be an email.'),
     handleValidationErrors
   ];
 
+// Sign up
 router.post('/', validateSignup, async (req, res) => {
-    const { email, password, username } = req.body;
+    const { email, password, username, firstName, lastName } = req.body;
     console.log("password",password)
-    const user = await User.signup({ email, username, password });
+    const user = await User.signup({ email, username, password, firstName, lastName });
 
     await setTokenCookie(res, user);
 
@@ -56,10 +58,6 @@ router.post('/', validateSignup, async (req, res) => {
     });
   }
 );
-
-
-
-
 
 
 module.exports = router;
