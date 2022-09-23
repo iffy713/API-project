@@ -1,5 +1,12 @@
 {
   "dependencies": {
-    "bcryptjs": "^2.4.3"
+    "pg": "^8.8.0"
+  },
+  "scripts": {
+    "sequelize": "sequelize",
+    "sequelize-cli": "sequelize-cli",
+    "start": "per-env",
+    "start:development": "nodemon ./bin/www",
+    "start:production": "node ./bin/www"
   }
 }
