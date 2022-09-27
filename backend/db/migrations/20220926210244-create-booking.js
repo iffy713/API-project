@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      soptId: {
+      spotId: {
         type: Sequelize.INTEGER,
         references: { model: "Spots" },
         onDelete: "CASCADE",

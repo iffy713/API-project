@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
-    soptId: {
+    spotId: {
       type: DataTypes.INTEGER,
       allowNull: false
     },
