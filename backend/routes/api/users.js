@@ -35,7 +35,7 @@ const validateSignup = [
       .not()
       .isEmail()
       .withMessage('First name cannot be an email.'),
-      check('lastName')
+    check('lastName')
       .exists({checkFalsy: true})
       .withMessage('Please provide your last name.'),
     check('lastName')
@@ -47,17 +47,27 @@ const validateSignup = [
 
 // Sign up
 router.post('/', validateSignup, async (req, res) => {
-    const { email, password, username, firstName, lastName } = req.body;
-    
-    const user = await User.signup({ email, username, password, firstName, lastName });
 
-    await setTokenCookie(res, user);
+  const { email, password, username, firstName, lastName } = req.body;
+
+    let user = await User.signup({ email, username, password, firstName, lastName });
+
+
+    //Error response with status 400 is given when body validations for the email, firstName, or lastName are violated
+    // const emailExits = await User.findOne({where: email})
+
+    let getToken = await setTokenCookie(res, user)
+    user = user.toJSON()
+    user.token = getToken
 
     return res.json({
       user,
     });
   }
 );
+
+
+
 
 
 module.exports = router;

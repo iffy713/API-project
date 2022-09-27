@@ -1,7 +1,14 @@
 const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
+//add routers
+const bookingsRouter = require('./bookings')
+const reviewsRouter = require('./reviews')
+const reviewImagesRouter = require('./reviewImages')
+const spotsRouter = require('./spots')
+const spotImagesRouter = require('./spotImages')
 const { restoreUser } = require('../../utils/auth.js');
+
 
 // //Test User Auth Middlewares
 // // GET /api/set-token-cookie

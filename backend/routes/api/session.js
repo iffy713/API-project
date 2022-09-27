@@ -62,7 +62,6 @@ const validateLogin = [
     handleValidationErrors
 ]
 //Log in
-
 router.post( '/', validateLogin, async (req, res, next)=>{
     const { credential, password } = req.body;
     const user = await User.login({ credential, password })
@@ -79,8 +78,6 @@ router.post( '/', validateLogin, async (req, res, next)=>{
 
     return res.json({user})
 } )
-
-
 
 
 
