@@ -1,4 +1,4 @@
-# Airbnb Clone
+# Airbvb
 
 ## Database Schema Design
 
@@ -278,7 +278,7 @@ Returns all the spots owned (created) by the current user.
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: /api/spots/:userId
+  * URL: /api/spots/current
   * Body: none
 
 * Successful Response
@@ -318,7 +318,7 @@ Returns the details of a spot specified by its id.
 * Require Authentication: false
 * Request
   * Method: GET
-  * URL: /api/spots/:soptId
+  * URL: /api/spots/:spotId
   * Body: none
 
 * Successful Response
@@ -990,7 +990,7 @@ Return all the bookings that the current user has made.
 * Require Authentication: true
 * Request
   * Method: GET
-  * URL: /api/users/:userid/bookings
+  * URL: /api/bookings/current
   * Body: none
 
 * Successful Response
@@ -1336,7 +1336,7 @@ Delete an existing image for a Spot.
 * Require proper authorization: Spot must belong to the current user
 * Request
   * Method: DELETE
-  * URL: /api/spots/:spotId/spotImages/:imageId
+  * URL: /api/spot-images/:imageId
   * Body: none
 
 * Successful Response
@@ -1373,7 +1373,7 @@ Delete an existing image for a Review.
 * Require proper authorization: Review must belong to the current user
 * Request
   * Method: DELETE
-  * URL: /api/reviewImages/:reviewImageId
+  * URL: /api/review-images/:imageId
   * Body: none
 
 * Successful Response
@@ -1411,8 +1411,8 @@ Return spots filtered by query parameters.
   * Method: GET
   * URL: /api/spots
   * Query Parameters
-    * page: integer, minimum: 0, maximum: 10, default: 0
-    * size: integer, minimum: 0, maximum: 20, default: 20
+    * page: integer, minimum: 1, maximum: 10, default: 1
+    * size: integer, minimum: 1, maximum: 20, default: 20
     * minLat: decimal, optional
     * maxLat: decimal, optional
     * minLng: decimal, optional
@@ -1463,8 +1463,8 @@ Return spots filtered by query parameters.
       "message": "Validation Error",
       "statusCode": 400,
       "errors": {
-        "page": "Page must be greater than or equal to 0",
-        "size": "Size must be greater than or equal to 0",
+        "page": "Page must be greater than or equal to 1",
+        "size": "Size must be greater than or equal to 1",
         "maxLat": "Maximum latitude is invalid",
         "minLat": "Minimum latitude is invalid",
         "minLng": "Maximum longitude is invalid",
