@@ -11,74 +11,55 @@ const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
 
-router.post(
-    '/',
-    async (req, res, next) => {
-      const { credential, password } = req.body;
-
-      const user = await User.login({ credential, password });
-
-      if (!user) {
-        const err = new Error('Login failed');
-        err.status = 401;
-        err.title = 'Login failed';
-        err.errors = ['The provided credentials were invalid.'];
-        return next(err);
-      }
-
-      await setTokenCookie(res, user);
-
-      return res.json({
-        user
-      });
-    }
-  );
-
-  router.delete(
-    '/',
-    (_req, res) => {
-      res.clearCookie('token');
-      return res.json({ message: 'success' });
-    }
-  );
-
-  //Get Session User API Route
-  router.get('/', restoreUser, (req, res)=>{
-    const { user } = req;
-    if(user){
-        return res.json({ user: user.toSafeObject() })
-    } else return res.json({})
-  })
 
 //Validating Login Request Body
 const validateLogin = [
-    check('credential')
+      check('credential')
       .exists({ checkFalsy: true })
       .notEmpty()
-      .withMessage('Please provide a valid email or username.'),
-    check('password')
+      .withMessage('Email or username is required'),
+      check('password')
       .exists({ checkFalsy: true })
-      .withMessage('Please provide a password.'),
-    handleValidationErrors
-]
-//Log in
-router.post( '/', validateLogin, async (req, res, next)=>{
-    const { credential, password } = req.body;
-    const user = await User.login({ credential, password })
+      .withMessage('Password is required'),
+      handleValidationErrors
+    ]
+    //Log in
+    router.post( '/', validateLogin, async (req, res, next)=>{
+      const { credential, password } = req.body;
+      const user = await User.login({ credential, password })
 
-    if(!user) {
-        const err = new Error('Login failed');
-        err.status = 401;
-        err.title = 'Login failed';
-        err.errors = ['The provided credentials were invalid.'];
-        return next(err)
-    }
+      if(!user) {
+        res.status(401)
+        return res.json({
+          "message": "Invalid credentials",
+          "statusCode": 401
+        })
+      }
 
-    await setTokenCookie(res, user);
+      let getToken = await setTokenCookie(res,user)
+      let output = user.toJSON()
+      output.token = getToken
 
-    return res.json({user})
-} )
+      return res.json(output)
+    } )
+
+    //Get Session User API Route
+    router.get('/', restoreUser, (req, res)=>{
+      const { user } = req;
+      if(user){
+          // return res.json({ user: user.toSafeObject() })
+          return res.json(user)
+        } else return res.json({})
+      })
+
+    //log out
+    router.delete(
+      '/',
+      (_req, res) => {
+        res.clearCookie('token');
+        return res.json({ message: 'success' });
+      }
+    );
 
 
-
-module.exports = router;
+    module.exports = router;

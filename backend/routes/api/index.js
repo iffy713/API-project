@@ -1,12 +1,12 @@
 const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
-//add routers
-const bookingsRouter = require('./bookings')
-const reviewsRouter = require('./reviews')
-const reviewImagesRouter = require('./reviewImages')
 const spotsRouter = require('./spots')
-const spotImagesRouter = require('./spotImages')
+//add routers
+// const bookingsRouter = require('./bookings')
+// const reviewsRouter = require('./reviews')
+// const reviewImagesRouter = require('./reviewImages')
+// const spotImagesRouter = require('./spotImages')
 const { restoreUser } = require('../../utils/auth.js');
 
 
@@ -54,6 +54,8 @@ router.use(restoreUser);
 router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
+
+router.use('/spots', spotsRouter)
 
 router.post('/test', (req, res) => {
   res.json({ requestBody: req.body });
