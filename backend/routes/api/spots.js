@@ -3,7 +3,7 @@ const express = require('express')
 const { check } = require('express-validator')
 const { handleValidationErrors } = require('../../utils/validation')
 const { requireAuth, restoreUser } = require('../../utils/auth')
-const { Spot, User, Review, Booking, SpotImage,sequelize } = require('../../db/models')
+const { Spot, User, Review, ReviewImage, Booking, SpotImage,sequelize } = require('../../db/models')
 // const user = require('../../db/models/user')
 
 const router = express.Router()
@@ -76,6 +76,8 @@ router.get('/', async(req,res)=>{
         const spotImage = await SpotImage.findByPk(spot.id)
         if(spotImage){
           spot.dataValues.previewImage = spotImage.url
+        } else {
+          spot.dataValues.previewImage = ""
         }
 
     }
@@ -151,6 +153,8 @@ router.get('/current', requireAuth, async (req, res)=>{
     const spotImage = await SpotImage.findByPk(spot.id)
     if(spotImage){
       spot.dataValues.previewImage = spotImage.url
+    } else {
+      spot.dataValues.previewImage = ""
     }
   }
   return res.json({Spots: spots})
@@ -272,7 +276,8 @@ router.post('/:spotId/reviews', requireAuth,validateReview, async(req, res)=>{
   }
   const reviewExits = await Review.findOne({
     where: {
-      userId: req.user.id
+      userId: req.user.id,
+      spotId: spot.id
     }
   })
   if(reviewExits){
@@ -287,10 +292,37 @@ router.post('/:spotId/reviews', requireAuth,validateReview, async(req, res)=>{
     review,
     stars
   })
-
+  console.log(newReview)
   return res.status(201).json(newReview)
 })
 
+
+//===============Get all Reviews by a Spot's id=================
+router.get('/:spotId/reviews', async (req,res)=>{
+  //spotId => reviews.spotId
+  const spot = await Spot.findByPk(req.params.spotId)
+  if(!spot){
+    return res.status(404).json({
+      "message": "Spot couldn't be found",
+      "statusCode": 404
+    })
+  }
+  const reviews = await Review.findAll({
+    where: {
+      spotId: spot.id
+    },
+    include: [{
+      model: User,
+      attributes: ['firstName','lastName']
+    },
+    {
+      model: ReviewImage,
+      attributes: ['id','url']
+    }]
+  })
+  return res.json({Reviews: reviews})
+
+})
 
 
 
