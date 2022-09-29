@@ -51,6 +51,21 @@ const validateReview = [
     handleValidationErrors
 ]
 
+const validateBooking = [
+  check('startDate')
+    .exists({checkFalsy: true})
+    .withMessage("Start date conflicts with an existing booking")
+    .isDate()
+    .withMessage("Please enter a date."),
+    // .isAfter(),
+  check('endDate')
+    .exists({checkFalsy: true})
+    .withMessage("End date conflicts with an existing booking")
+    .isDate()
+    .withMessage("Please enter a date."),
+    handleValidationErrors
+]
+
 //===================Get all Spots===========================
 router.get('/', async(req,res)=>{
 //Get all Spots with avgRating & previewImage
@@ -321,6 +336,30 @@ router.get('/:spotId/reviews', async (req,res)=>{
     }]
   })
   return res.json({Reviews: reviews})
+
+})
+
+//====================Create a Booking from a Spot based on the Spot's id==========
+router.post('/:spotId/bookings', requireAuth, validateBooking ,async (req,res)=> {
+  const spot = await Spot.findByPk(req.params.spotId)
+  //------Couldn't find a Spot with the specified id
+  if(!spot){
+    return res.status(404).json({
+      "message": "Spot couldn't be found",
+      "statusCode": 404
+    })
+  }
+  //--------Body validation errors
+  const { startDate, endDate } = req.body
+  if(endDate < startDate){
+    return res.status(404).json({
+      "message": "Validation error",
+      "statusCode": 400,
+      "errors": {
+        "endDate": "endDate cannot be on or before startDate"
+      }
+    })
+  }
 
 })
 
