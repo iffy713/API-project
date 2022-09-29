@@ -4,9 +4,7 @@ const { check } = require('express-validator')
 const { handleValidationErrors } = require('../../utils/validation')
 const { requireAuth, restoreUser } = require('../../utils/auth')
 const { Spot, User, Review, Booking, SpotImage,sequelize } = require('../../db/models')
-const user = require('../../db/models/user')
-
-
+// const user = require('../../db/models/user')
 
 const router = express.Router()
 
@@ -39,6 +37,17 @@ const validateSpot = [
     check('price')
       .exists({checkFalsy: true})
       .withMessage('Pirce per day is required'),
+    handleValidationErrors
+]
+
+const validateReview = [
+  check('review')
+    .exists({checkFalsy: true})
+    .withMessage('Review text is required'),
+  check('stars')
+    .exists({checkFalsy: true})
+    // .isIn([1,5])
+    .withMessage('Stars must be an integer from 1 to 5'),
     handleValidationErrors
 ]
 
@@ -136,7 +145,7 @@ router.get('/current', requireAuth, async (req, res)=>{
       ]
     })
     let avgRating = spotReview[0].dataValues.avgRating
-    spot.dataValues.avgRating = Number(avgRating).toFixed(1)
+    spot.dataValues.avgRating = parseFloat(Number(avgRating).toFixed(1))
   //-------------------Get average stars----------------------//
 
     const spotImage = await SpotImage.findByPk(spot.id)
@@ -179,7 +188,7 @@ router.get('/:spotId', async(req, res)=>{
     ]
   })
   let avgRating = spotReview[0].dataValues.avgRating
-  spot.dataValues.avgStarRating = Number(avgRating).toFixed(1)
+  spot.dataValues.avgStarRating = parseFloat(Number(avgRating).toFixed(1))
   //numReviews
   const reviewsCount = await Review.count({
     where: {
@@ -250,6 +259,39 @@ router.delete('/:spotId', requireAuth, restoreUser, async(req, res)=>{
     "statusCode": 200
   })
 })
+
+//===========Create a Review for a Spot based on the Spot's id===========
+router.post('/:spotId/reviews', requireAuth,validateReview, async(req, res)=>{
+  const { review, stars } = req.body
+  const spot = await Spot.findByPk(req.params.spotId)
+  if(!spot) {
+    return res.status(404).json({
+      "message": "Spot couldn't be found",
+      "statusCode": 404
+    })
+  }
+  const reviewExits = await Review.findOne({
+    where: {
+      userId: req.user.id
+    }
+  })
+  if(reviewExits){
+    return res.status(403).json({
+      "message": "User already has a review for this spot",
+      "statusCode": 403
+    })
+  }
+  const newReview = await Review.create({
+    userId: req.user.id,
+    spotId: spot.id,
+    review,
+    stars
+  })
+
+  return res.status(201).json(newReview)
+})
+
+
 
 
 module.exports = router
