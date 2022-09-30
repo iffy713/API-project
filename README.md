@@ -41,7 +41,7 @@ correct role(s) or permission(s).
     ```json
     {
       "message": "Forbidden",
-      "statusCode": 403
+      "statusCode":
     }
     ```
 
