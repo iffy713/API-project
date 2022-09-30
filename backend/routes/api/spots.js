@@ -79,6 +79,7 @@ const validateQuery  = [
   check("minLat")
     .optional()
     .isDecimal()
+    .isInt({min: -90})
     .withMessage("Minimum latitude is invalid"),
   check("maxLat")
     .optional()
@@ -87,19 +88,19 @@ const validateQuery  = [
   check("minLng")
     .optional()
     .isDecimal()
-    .withMessage("Maximum longitude is invalid"),
+    .withMessage("Minimum longitude is invalid"),
   check("maxLng")
     .optional()
     .isDecimal()
-    .withMessage("Minimum longitude is invalid"),
+    .withMessage("Maxium longitude is invalid"),
   check("minPrice")
     .optional()
     .isDecimal({min:0})
-    .withMessage("Maximum price must be greater than or equal to 0"),
+    .withMessage("Minimum price must be greater than or equal to 0"),
   check("maxPrice")
     .optional()
     .isDecimal({min:0})
-    .withMessage("Minimum price must be greater than or equal to 0"),
+    .withMessage("Maxium price must be greater than or equal to 0"),
   handleValidationErrors
 ]
 //===================Get all Spots===========================
@@ -130,9 +131,9 @@ router.get('/',validateQuery, async(req,res)=>{
 
     if(maxLng) filter.push( { lng: {[Op.lte] : Number(maxLat) }} )
 
-    if(minPrice) whfilter.push( { price: {[Op.gte] : Number(minPrice)}} )
+    if(minPrice) filter.push( { price: {[Op.gte] : Number(minPrice)}} )
 
-    if(maxPrice) whfilter.push( { price: {[Op.lte] : Number(maxPrice)}} )
+    if(maxPrice) filter.push( { price: {[Op.lte] : Number(maxPrice)}} )
 
     const spots = await Spot.findAll({
       where: {
