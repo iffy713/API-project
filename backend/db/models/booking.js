@@ -37,6 +37,13 @@ module.exports = (sequelize, DataTypes) => {
     startDate: {
       type: DataTypes.DATE,
       allowNull: false,
+      validate: {
+        isEarly(value){
+          if (value > this.endDate){
+            throw new Error("Start date conflicts with an existing booking")
+          }
+        }
+      }
     },
     endDate: {
       type: DataTypes.DATE,
