@@ -20,10 +20,9 @@ const validateReview = [
   ]
 
 //========Add an Image to a Review based on the Review's id==========
-router.post('/:reviewId/images', requireAuth,async (req,res)=>{
-    console.log("================",req.params.reviewId)
-    const review = await Review.findByPk(req.params.reviewId)
+router.post('/:reviewId/images', requireAuth, async (req,res)=>{
 
+    const review = await Review.findByPk(req.params.reviewId)
 
     const { url } = req.body
     if(!review){
@@ -49,8 +48,11 @@ router.post('/:reviewId/images', requireAuth,async (req,res)=>{
         reviewId: req.params.reviewId,
         url
     })
+    const output = await ReviewImage.findByPk(newImage.id,{
+        attributes: ['id','url']
+    })
 
-    return res.status(200).json({newImage})
+    return res.status(200).json(output)
 })
 
 //==================Get all Reviews of the Current User==========
@@ -71,7 +73,8 @@ router.get('/current', requireAuth, async(req,res)=>{
                 }
             },
             {
-                model: ReviewImage
+                model: ReviewImage,
+                attributes: ['id','url']
             }
         ]
     })
@@ -97,6 +100,7 @@ router.get('/current', requireAuth, async(req,res)=>{
 router.put('/:reviewId', requireAuth,validateReview, async(req, res)=>{
     const { review, stars } = req.body
     const oldReview  = await Review.findByPk(req.params.reviewId)
+   
     if(!oldReview){
         return res.status(404).json({
             "message": "Review couldn't be found",
