@@ -59,27 +59,28 @@ router.get('/current', requireAuth, async(req, res)=>{
 })
 
 // !!!!! test didn't passed
-// // ===============Update and return an existing booking.========
-// router.put('/:bookingId', requireAuth, validateBooking,async (req, res)=>{
-//     const { starDate, endDate } = req.body
-//     const oldBooking = await Booking.findByPk(req.params.bookingId)
+// ===============Update and return an existing booking.========
+router.put('/:bookingId', requireAuth, validateBooking,async (req, res)=>{
+    const { starDate, endDate } = req.body
+    const oldBooking = await Booking.findByPk(req.params.bookingId)
+    
 
-//     if(!oldBooking){
-//         return res.status(404).json({
-//             "message": "Booking couldn't be found",
-//             "statusCode": 404
-//           })
-//     } else {
-//         if(starDate){
-//             oldBooking.starDate = starDate
-//         }
-//         if(endDate) {
-//             oldBooking.endDate = endDate
-//         }
-//         oldBooking.save()
-//         return res.json(oldBooking)
-//     }
-// })
+    if(!oldBooking){
+        return res.status(404).json({
+            "message": "Booking couldn't be found",
+            "statusCode": 404
+          })
+    } else {
+        if(starDate){
+            oldBooking.starDate = starDate
+        }
+        if(endDate) {
+            oldBooking.endDate = endDate
+        }
+        oldBooking.save()
+        return res.json(oldBooking)
+    }
+})
 
 //=====================Delete a Booking======================
 router.delete('/:bookingId', requireAuth, async(req, res)=>{
