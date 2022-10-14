@@ -48,12 +48,20 @@ export const signup = (user) => async (dispatch) => {
   return response;
 };
 
+export const logout = () => async (dispatch) => {
+  const response = await csrfFetch('/api/session', {
+    method: 'DELETE',
+  });
+  dispatch(removeUser());
+  return response;
+};
+
 // window.store.dispatch(window.sessionActions.signup({
-//   username: 'Ababajone',
-//   email: 'aj@user.io',
+//   username: 'helloword',
+//   email: 'hw@user.io',
 //   password: 'password',
-//   firstName: 'Jone',
-//   lastName: 'Abababa'
+//   firstName: 'Hello',
+//   lastName: 'Word'
 // }));
 
 const initialState = { user: null };
