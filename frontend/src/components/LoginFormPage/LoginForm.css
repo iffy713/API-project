@@ -1,0 +1,14 @@
+.login_form_container {
+    border: solid 2px rgb(198,198,198);
+    border-radius: 20px;
+    width: fit-content;
+    margin: auto;
+}
+
+.login_form {
+    padding: 20px;
+}
+
+.login_in_button {
+    cursor: pointer;
+}
