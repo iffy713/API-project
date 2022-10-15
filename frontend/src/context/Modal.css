@@ -1,0 +1,16 @@
+#modal {
+    position: fixed;
+    /* width, height */
+    display: flex;
+}
+
+#modal-background {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#modal-content {
+    justify-items: center;
+    position: absolute;
+    background-color: white;
+}

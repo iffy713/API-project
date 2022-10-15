@@ -1,16 +1,31 @@
-.signup_form_container {
-    border: solid 2px rgb(198,198,198);
-    border-radius: 20px;
-    width: fit-content;
-    margin: auto;
-    display: flex;
+span {
+    margin: 10px;
 }
 
-.signup_form {
-    padding: 20px;
+.nav_link_bar {
+    list-style: none;
 }
 
-.signup_button {
+.nav_links {
+    text-decoration: none;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.profile-dropdown {
+    color: #716F81;
+    list-style: none;
+}
+
+.show_menu_element {
+    margin: 20px;
+}
+
+#log_out_button {
     cursor: pointer;
-
+    background-color: #716F81;
+    color: azure;
+    height: 50px;
+    border-radius: 20px;
+    border: #716F81;
+    align-items: center;
 }
