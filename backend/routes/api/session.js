@@ -49,7 +49,7 @@ const validateLogin = [
       if(user){
           // return res.json({ user: user.toSafeObject() })
           return res.json(user)
-        } else return res.json({})
+        } else return res.json(null)
       })
 
     //log out

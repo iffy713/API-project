@@ -1,0 +1,38 @@
+#sign_up_modal_button {
+    margin: 10px;
+    border: #f1f1f1 1px solid;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+}
+#sign_up_modal_button:hover {
+    background-color: rgb(229,31,92);
+    color: white;
+    border: rgb(229,31,92) solid 1px;
+}
+
+.signup_form_container {
+    border: solid 2px rgb(198,198,198);
+    border-radius: 20px;
+    width: fit-content;
+    margin: auto;
+    display: flex;
+}
+
+.signup_form {
+    padding: 20px;
+}
+
+.signup_button {
+    cursor: pointer;
+    background-color: rgb(229,31,92);
+    color: azure;
+    height: 50px;
+    border-radius: 20px;
+    border: rgb(229,31,92);
+    align-items: center;
+}
+
+div {
+    margin: 30px;
+}

@@ -1,0 +1,30 @@
+span {
+    margin: 10px;
+}
+
+#nav_home {
+    text-decoration: none;
+}
+
+.nav_link_bar {
+    list-style: none;
+}
+
+.profile-dropdown {
+    color: #716F81;
+    list-style: none;
+}
+
+.show_menu_element {
+    margin: 20px;
+}
+
+#log_out_button {
+    cursor: pointer;
+    background-color: #716F81;
+    color: azure;
+    height: 50px;
+    border-radius: 20px;
+    border: #716F81;
+    align-items: center;
+}
