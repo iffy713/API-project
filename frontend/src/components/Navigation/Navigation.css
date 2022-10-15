@@ -1,0 +1,16 @@
+.signup_form_container {
+    border: solid 2px rgb(198,198,198);
+    border-radius: 20px;
+    width: fit-content;
+    margin: auto;
+    display: flex;
+}
+
+.signup_form {
+    padding: 20px;
+}
+
+.signup_button {
+    cursor: pointer;
+
+}
