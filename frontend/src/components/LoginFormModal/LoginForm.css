@@ -1,3 +1,16 @@
+#log_in_modal_button {
+    margin: 10px;
+    border: #f1f1f1 1px solid;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+}
+#log_in_modal_button:hover {
+    background-color: rgb(229,31,92);
+    color: white;
+    border: rgb(229,31,92) solid 1px;
+}
+
 .login_form_container {
     border-radius: 20px;
     width: fit-content;

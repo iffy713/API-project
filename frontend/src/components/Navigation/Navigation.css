@@ -2,13 +2,12 @@ span {
     margin: 10px;
 }
 
-.nav_link_bar {
-    list-style: none;
+#nav_home {
+    text-decoration: none;
 }
 
-.nav_links {
-    text-decoration: none;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+.nav_link_bar {
+    list-style: none;
 }
 
 .profile-dropdown {
