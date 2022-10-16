@@ -6,7 +6,21 @@ span {
     text-decoration: none;
 }
 
-.nav_link_bar {
+#user_circle {
+    background-color: white;
+    border: white;
+    cursor: pointer;
+}
+
+i {
+    font-size: 30px;
+}
+
+i:hover {
+    color: rgb(229,31,92);
+}
+
+li {
     list-style: none;
 }
 
@@ -27,4 +41,12 @@ span {
     border-radius: 20px;
     border: #716F81;
     align-items: center;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 15px;
+}
+
+#log_out_button:hover {
+    background-color: rgb(229,31,92);
+    color: white;
 }

@@ -27,30 +27,27 @@ function LoginForm() {
 
   return (
     <div className='login_form_container'>
-        <div className='login_title'>
-          <h2>Log in</h2>
-        </div>
         <form onSubmit={handleSubmit} className="login_form">
+          <div id='login_title'>
+            <h2 >Log in</h2>
+          </div>
         <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
-        <div><label htmlFor='username'>
-            Username or Email
-        </label></div>
         <div>
           <input
-            id='username'
+            id='input_username'
+            placeholder='Username or Email'
             type="text"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
             required
           />
         </div>
-        <div><label id="password">
-            Password
-        </label></div>
         <div>
           <input
+          id='input_password'
+          placeholder='Password'
           htmlFor="password"
           type="password"
           value={password}

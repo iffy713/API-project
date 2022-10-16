@@ -4,7 +4,10 @@
     border-radius: 10px;
     background-color: white;
     cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
 }
+
 #log_in_modal_button:hover {
     background-color: rgb(229,31,92);
     color: white;
@@ -20,8 +23,9 @@
     flex-direction: column;
 }
 
-.login_title {
+#login_title {
     margin: auto;
+    width: fit-content;
 }
 
 .login_form {
@@ -29,7 +33,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
 
+#input_username {
+    font-size: 15px;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    border: 2px black;
+    margin: 10px;
+}
+
+#input_password {
+    font-size: 15px;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    border: 2px black;
 }
 
 .login_in_button {
@@ -37,7 +57,12 @@
     background-color: rgb(229,31,92);
     color: azure;
     height: 50px;
+    width: 95%;
     border-radius: 20px;
     border: rgb(229,31,92);
     align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+    margin: 10px;
 }

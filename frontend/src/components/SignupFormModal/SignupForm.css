@@ -4,6 +4,8 @@
     border-radius: 10px;
     background-color: white;
     cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
 }
 #sign_up_modal_button:hover {
     background-color: rgb(229,31,92);
@@ -12,15 +14,34 @@
 }
 
 .signup_form_container {
-    border: solid 2px rgb(198,198,198);
     border-radius: 20px;
     width: fit-content;
     margin: auto;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#signup_title {
+    margin: auto;
+    width: fit-content;
 }
 
 .signup_form {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    margin: 10px;
+    border-radius: 10px;
+    border: 2px black;
+    background-color: #f1f1f1;
+    font-size: 15px;
+    padding: 15px;
+    width: 300px;
 }
 
 .signup_button {
@@ -28,11 +49,12 @@
     background-color: rgb(229,31,92);
     color: azure;
     height: 50px;
+    width: 95%;
     border-radius: 20px;
     border: rgb(229,31,92);
     align-items: center;
-}
-
-div {
-    margin: 30px;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 15px;
+    margin: 10px;
 }

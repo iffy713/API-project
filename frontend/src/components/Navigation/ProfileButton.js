@@ -32,7 +32,9 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button onClick={openMenu}
+        id="user_circle"
+      >
         <i className="fa-solid fa-circle-user" />
       </button>
       {showMenu && (
