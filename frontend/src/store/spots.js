@@ -6,7 +6,7 @@ const LOAD_SPOTS_CURRENT_USER = 'spots/loadSpotCurrentUser'
 
 const CREATE_SPOT = 'spots/createSpot'
 const EDIT_SPOT = 'spots/editSpot'
-// const DELETE_SPOT = 'spots/deleteSpot'
+const DELETE_SPOT = 'spots/deleteSpot'
 
 const loadSpots = (spots) =>{
     return {
@@ -44,14 +44,15 @@ const editSpot = (spot) =>{
     }
 }
 
-// const deleteSpot = () =>{
-//     return {
-//         type: DELETE_SPOT
-//     }
-// }
+const deleteSpot = (spotId) =>{
+    return {
+        type: DELETE_SPOT,
+        spotId
+    }
+}
 
 export const getAllSpots = () => async (dispatch)=>{
-    const res = await csrfFetch('/api/spots')
+    const res = await fetch('/api/spots')
     const data = await res.json()
     if(res.ok){
         dispatch(loadSpots(data.Spots))
@@ -59,7 +60,7 @@ export const getAllSpots = () => async (dispatch)=>{
 }
 
 export const getSpotDetails = (spotId) => async (dispatch) =>{
-    const res = await csrfFetch(`/api/spots/${spotId}`)
+    const res = await fetch(`/api/spots/${spotId}`)
     const data = await res.json()
     // console.log("data in thunk==========",data)
     if(res.ok){
@@ -105,11 +106,23 @@ export const updateSpot = (spotId, spot) => async (dispatch) => {
     }
 }
 
-const spotReducer = (state={}, action) =>{
-    const newState = {...state}
+export const deleteSingleSpot = (spotId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/spots/${spotId}`, {
+        method: 'DELETE',
+    })
+    if(res.ok) {
+        dispatch(deleteSpot(spotId))
+    }
+
+}
+
+const initialState = {}
+
+const spotReducer = (state=initialState, action) =>{
     switch (action.type){
         //get all spots
         case LOAD_SPOTS:
+            const newState = {}
             action.spots.forEach(spot=>{
                 newState[spot.id] = spot
             })
@@ -124,7 +137,7 @@ const spotReducer = (state={}, action) =>{
 
         //get all spots of current user
         case LOAD_SPOTS_CURRENT_USER:
-            const ownerSpots = {...state}
+            const ownerSpots = {}
             action.spots.forEach(spot=>{
                 ownerSpots[spot.id]= spot
             })
@@ -144,6 +157,13 @@ const spotReducer = (state={}, action) =>{
         case EDIT_SPOT:
             newState[action.spot.id] = action.spot
             return newState
+
+        //delete a spot
+        case DELETE_SPOT: {
+            const newState = {...state}
+            delete newState[action.spotId]
+            return newState
+        }
 
         default:
             return state

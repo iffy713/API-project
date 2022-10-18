@@ -40,11 +40,12 @@ export default function UpdateSpotForm(){
         // if(createNewSpot){
         //     history.push(`/spots/current`)
         // }
+        let updatedSpot = await dispatch(updatedSpot())
     }
 
     return(
         <div>
-            <div>Create a new spot</div>
+            <div>Update My Spot</div>
             <form onSubmit={handleSubmit}>
                 <div>
                     <input placeholder="Address"

@@ -15,6 +15,8 @@ export default function SpotCard(){
         dispatch(getAllSpots())
     },[dispatch])
 
+    
+
 
     return (
         <div className='spot_card_container'>

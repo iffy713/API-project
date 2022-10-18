@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { getSpotCurrentUser } from "../../store/spots"
+import { deleteSingleSpot } from "../../store/spots"
 import './SpotCurrentUser.css'
 
 export default function SpotCurrentUser() {
@@ -21,7 +22,6 @@ export default function SpotCurrentUser() {
         <div className='spot_card_container'>
             <h2>All My Spots</h2>
             <NavLink to='/spots/current/new'>Create a New Spot</NavLink>
-            // ^^^^^^^^^
             {allSpotsArr.map(spot=>(
                 <div>
                     <div className='single_card'>
@@ -34,8 +34,10 @@ export default function SpotCurrentUser() {
                         <div>{spot.price} night</div>
                     </div>
                     <div>
-                        <button>Update</button>
-                        <button>Delete</button>
+                        <NavLink to={`/spots/${spot.id}/update`}>
+                            <button>Update</button>
+                        </NavLink>
+                        <button onClick={()=>dispatch(deleteSingleSpot(spot.id))}>Delete</button>
                     </div>
                 </div>
             ))}
