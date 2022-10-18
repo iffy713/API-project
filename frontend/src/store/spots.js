@@ -4,7 +4,7 @@ const LOAD_SPOTS = 'spots/loadSpots'
 const LOAD_SPOT_DETAILS = 'spots/loadSpotDetails'
 const LOAD_SPOTS_CURRENT_USER = 'spots/loadSpotCurrentUser'
 
-// const CREATE_SPOT = 'spots/createSpot'
+const CREATE_SPOT = 'spots/createSpot'
 // const EDIT_SPOT = 'spots/editSpot'
 // const DELETE_SPOT = 'spots/deleteSpot'
 
@@ -30,11 +30,12 @@ const loadSpotsOfCurrentUser = (spots) =>{
 }
 
 
-// const createSpot = () =>{
-//     return {
-//         type: CREATE_SPOT
-//     }
-// }
+const createSpot = (spot) =>{
+    return {
+        type: CREATE_SPOT,
+        spot
+    }
+}
 
 // const editSpot = () =>{
 //     return {
@@ -74,6 +75,21 @@ export const getSpotCurrentUser = () => async (dispatch) =>{
     }
 }
 
+export const createNewSpot = data => async (dispatch) => {
+    const res = await fetch(`/api/spots/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    if(res.ok){
+        const newSpot = await res.json()
+        dispatch(createSpot(newSpot))
+        return newSpot
+    }
+}
+
 const spotReducer = (state={}, action) =>{
     const newState = {...state}
     switch (action.type){
@@ -98,6 +114,16 @@ const spotReducer = (state={}, action) =>{
                 ownerSpots[spot.id]= spot
             })
             return ownerSpots
+
+        //create a new spot
+        case CREATE_SPOT:
+            return {
+                ...state,
+                [action.spot.id]:{
+                    ...state[action.spot.id],
+                    spot: [...state[action.spot.id]]
+                }
+            }
 
         default:
             return state

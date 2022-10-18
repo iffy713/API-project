@@ -1,6 +1,8 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { NavLink } from "react-router-dom"
 import { getSpotCurrentUser } from "../../store/spots"
+import CreateNewSpotForm from "./CreateNewSpotForm"
 import './SpotCurrentUser.css'
 
 export default function SpotCurrentUser() {
@@ -19,7 +21,8 @@ export default function SpotCurrentUser() {
     return (
         <div className='spot_card_container'>
             <h2>All My Spots</h2>
-            <button>Create a New Spot</button>
+            <NavLink to>Create a New Spot</NavLink>
+            // ^^^^^^^^^
             {allSpotsArr.map(spot=>(
                 <div className='single_card'>
                     <img key={spot.id} src={spot.previewImage} alt={spot.name} className='spot_img'/>
@@ -30,6 +33,8 @@ export default function SpotCurrentUser() {
                     <div>{spot.city},{spot.state}</div>
                 </div>
             ))}
+
+            <CreateNewSpotForm />
         </div>
     )
 }

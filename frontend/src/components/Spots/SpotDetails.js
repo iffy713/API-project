@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getSpotDetails } from '../../store/spots';
 
+// path: '/spots/:spotId'
 export default function SpotDetails(){
 
     const dispatch = useDispatch()
@@ -17,7 +18,7 @@ export default function SpotDetails(){
 
     return (
         <div>
-            
+
             <div>
                 <h1>{singleSpot.name}</h1>
                 <span>{singleSpot.avgStarRating}</span>
