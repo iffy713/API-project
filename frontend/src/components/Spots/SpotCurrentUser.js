@@ -2,7 +2,6 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import { getSpotCurrentUser } from "../../store/spots"
-import CreateNewSpotForm from "./CreateNewSpotForm"
 import './SpotCurrentUser.css'
 
 export default function SpotCurrentUser() {
@@ -21,20 +20,25 @@ export default function SpotCurrentUser() {
     return (
         <div className='spot_card_container'>
             <h2>All My Spots</h2>
-            <NavLink to>Create a New Spot</NavLink>
+            <NavLink to='/spots/current/new'>Create a New Spot</NavLink>
             // ^^^^^^^^^
             {allSpotsArr.map(spot=>(
-                <div className='single_card'>
-                    <img key={spot.id} src={spot.previewImage} alt={spot.name} className='spot_img'/>
-                    <div>
-                        {spot.name}
-                        <span><i className='fas fa-solid fa-star'/>{spot.avgRating}</span>
+                <div>
+                    <div className='single_card'>
+                        <img key={spot.id} src={spot.previewImage} alt={spot.name} className='spot_img'/>
+                        <div>
+                            {spot.name}
+                            <span><i className='fas fa-solid fa-star'/>{spot.avgRating}</span>
+                        </div>
+                        <div>{spot.city},{spot.state}</div>
+                        <div>{spot.price} night</div>
                     </div>
-                    <div>{spot.city},{spot.state}</div>
+                    <div>
+                        <button>Update</button>
+                        <button>Delete</button>
+                    </div>
                 </div>
             ))}
-
-            <CreateNewSpotForm />
         </div>
     )
 }

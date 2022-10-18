@@ -7,6 +7,7 @@ import { Route, Switch } from "react-router-dom";
 import Spots from "./components/Spots";
 import SpotDetails from "./components/Spots/SpotDetails";
 import SpotCurrentUser from "./components/Spots/SpotCurrentUser";
+import CreateNewSpotForm from "./components/Spots/CreateNewSpotForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,6 +20,10 @@ function App() {
     <>
       <Navigation isLoaded={isLoaded} />
       <Switch>
+        
+        <Route exact path='/spots/current/new'>
+          <CreateNewSpotForm />
+        </Route>
 
         <Route exact path={'/spots/current'}>
           <SpotCurrentUser />
@@ -27,6 +32,7 @@ function App() {
         <Route exact path={'/spots/:spotId'}>
           <SpotDetails />
         </Route>
+
 
         <Route exact path='/'>
           <Spots />

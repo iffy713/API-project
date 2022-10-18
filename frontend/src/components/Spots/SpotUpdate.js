@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
-import { createNewSpot } from "../../store/spots"
 
-export default function CreateNewSpotForm(){
+export default function UpdateSpotForm(){
 
     const history = useHistory()
     const dispatch = useDispatch()
@@ -37,10 +36,10 @@ export default function CreateNewSpotForm(){
             description
         }
 
-        let createdSpot = await dispatch(createNewSpot(newSpot))
-        if(createNewSpot){
-            history.push(`/spots/current`)
-        }
+        // let createdSpot = await dispatch(createNewSpot(newSpot))
+        // if(createNewSpot){
+        //     history.push(`/spots/current`)
+        // }
     }
 
     return(

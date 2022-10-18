@@ -1,11 +1,11 @@
-// import { csrfFetch } from "./csrf"
+import { csrfFetch } from "./csrf"
 
 const LOAD_SPOTS = 'spots/loadSpots'
 const LOAD_SPOT_DETAILS = 'spots/loadSpotDetails'
 const LOAD_SPOTS_CURRENT_USER = 'spots/loadSpotCurrentUser'
 
 const CREATE_SPOT = 'spots/createSpot'
-// const EDIT_SPOT = 'spots/editSpot'
+const EDIT_SPOT = 'spots/editSpot'
 // const DELETE_SPOT = 'spots/deleteSpot'
 
 const loadSpots = (spots) =>{
@@ -37,11 +37,12 @@ const createSpot = (spot) =>{
     }
 }
 
-// const editSpot = () =>{
-//     return {
-//         type: EDIT_SPOT
-//     }
-// }
+const editSpot = (spot) =>{
+    return {
+        type: EDIT_SPOT,
+        spot
+    }
+}
 
 // const deleteSpot = () =>{
 //     return {
@@ -50,7 +51,7 @@ const createSpot = (spot) =>{
 // }
 
 export const getAllSpots = () => async (dispatch)=>{
-    const res = await fetch('/api/spots')
+    const res = await csrfFetch('/api/spots')
     const data = await res.json()
     if(res.ok){
         dispatch(loadSpots(data.Spots))
@@ -58,7 +59,7 @@ export const getAllSpots = () => async (dispatch)=>{
 }
 
 export const getSpotDetails = (spotId) => async (dispatch) =>{
-    const res = await fetch(`/api/spots/${spotId}`)
+    const res = await csrfFetch(`/api/spots/${spotId}`)
     const data = await res.json()
     // console.log("data in thunk==========",data)
     if(res.ok){
@@ -67,7 +68,7 @@ export const getSpotDetails = (spotId) => async (dispatch) =>{
 }
 
 export const getSpotCurrentUser = () => async (dispatch) =>{
-    const res = await fetch(`/api/spots/current`)
+    const res = await csrfFetch(`/api/spots/current`)
     const data = await res.json()
     console.log("spot of current user ==========",data)
     if(res.ok){
@@ -76,7 +77,7 @@ export const getSpotCurrentUser = () => async (dispatch) =>{
 }
 
 export const createNewSpot = data => async (dispatch) => {
-    const res = await fetch(`/api/spots/`, {
+    const res = await csrfFetch(`/api/spots/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -87,6 +88,20 @@ export const createNewSpot = data => async (dispatch) => {
         const newSpot = await res.json()
         dispatch(createSpot(newSpot))
         return newSpot
+    }
+}
+
+export const updateSpot = (spotId, spot) => async (dispatch) => {
+    const res = await csrfFetch(`/api/spots/${spotId}`,{
+        method: 'PUT',
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(spot)
+    })
+    const data = await res.json()
+    if(res.ok) {
+        dispatch(editSpot(data))
     }
 }
 
@@ -121,9 +136,14 @@ const spotReducer = (state={}, action) =>{
                 ...state,
                 [action.spot.id]:{
                     ...state[action.spot.id],
-                    spot: [...state[action.spot.id]]
+                    ...action.spot
                 }
             }
+
+        //update a spot
+        case EDIT_SPOT:
+            newState[action.spot.id] = action.spot
+            return newState
 
         default:
             return state
