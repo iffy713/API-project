@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
+import { NavLink } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import './Navigation.css';
 
@@ -41,6 +42,9 @@ function ProfileButton({ user }) {
         <ul className="profile-dropdown">
           <li className="show_menu_element">{user.username}</li>
           <li className="show_menu_element">{user.email}</li>
+          <li>
+            <NavLink exact to={'/spots/current'}>Manage My Spots</NavLink>
+          </li>
           <li className="show_menu_element">
             <button onClick={logout} id="log_out_button">Log Out</button>
           </li>

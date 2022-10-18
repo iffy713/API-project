@@ -12,11 +12,11 @@ span {
     cursor: pointer;
 }
 
-i {
+.fa-circle-user {
     font-size: 30px;
 }
 
-i:hover {
+.fa-circle-user:hover {
     color: rgb(229,31,92);
 }
 

@@ -1,0 +1,19 @@
+.spot_card_container {
+    /* border: 1px solid black; */
+    display: inline-block;
+
+}
+
+.single_card {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 250px;
+    height: 300px;
+    margin: 5px;
+}
+
+.spot_img {
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+}
