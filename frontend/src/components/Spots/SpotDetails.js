@@ -8,7 +8,7 @@ export default function SpotDetails(){
 
     const dispatch = useDispatch()
     const { spotId } = useParams()
-    const singleSpot = useSelector(state=>state.spot[spotId])
+    const singleSpot = useSelector(state=>state.spot.singleSpot)
 
     useEffect(()=>{
         dispatch(getSpotDetails(spotId))
@@ -24,11 +24,11 @@ export default function SpotDetails(){
                 <span>{singleSpot.avgStarRating}</span>
                 <span>{singleSpot.city},{singleSpot.state},{singleSpot.country}</span>
             </div>
-            <div>
-                {singleSpot.SpotImages.map(image=>(
+            {/* <div>
+                {singleSpot.SpotImages.map(image => (
                     <img key={image.id} src={image.url} alt={singleSpot.name}/>
                 ))}
-            </div>
+            </div> */}
             <div>
                 <h2>Hosted by</h2>
             </div>

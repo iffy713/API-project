@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom"
 
 export default function UpdateSpotForm(){
+
+    const spotObj = useSelector(state => state.spot.singleSpot)
+    
 
     const history = useHistory()
     const dispatch = useDispatch()
@@ -120,7 +123,7 @@ export default function UpdateSpotForm(){
                     />
                 </div>
                 <div>
-                    <button type="submit">Create Spot</button>
+                    <button type="submit">Update</button>
                 </div>
             </form>
         </div>

@@ -17,6 +17,7 @@ export default function CreateNewSpotForm(){
     const [price, setPrice] = useState()
     const [description, setDesprition] = useState()
     const [errors, setErrors] = useState([])
+    const [imageUrl, setImageUrl] = useState()
 
     // useEffect(()=>{
     //     dispatch()
@@ -34,11 +35,14 @@ export default function CreateNewSpotForm(){
             lng,
             name,
             price,
-            description
+            description,
+            imageUrl
         }
 
+
         let createdSpot = await dispatch(createNewSpot(newSpot))
-        if(createNewSpot){
+        if(createdSpot){
+            setErrors([])
             history.push(`/spots/current`)
         }
     }
@@ -117,6 +121,14 @@ export default function CreateNewSpotForm(){
                         type={'text'}
                         value={description}
                         onChange={e=>setDesprition(e.target.value)}
+                    />
+                </div>
+                <div>
+                    <input placeholder='Image Url'
+                        required
+                        type={'text'}
+                        value={imageUrl}
+                        onChange={e=>setImageUrl(e.target.value)}
                     />
                 </div>
                 <div>

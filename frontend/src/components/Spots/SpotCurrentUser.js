@@ -8,7 +8,7 @@ import './SpotCurrentUser.css'
 export default function SpotCurrentUser() {
 
     const dispatch = useDispatch()
-    const allSpotsObj = useSelector(state=>state.spot)
+    const allSpotsObj = useSelector(state=>state.spot.allSpots)
     const allSpotsArr = Object.values(allSpotsObj)
 
     // console.log("===========", allSpotsArr)
@@ -23,8 +23,8 @@ export default function SpotCurrentUser() {
             <h2>All My Spots</h2>
             <NavLink to='/spots/current/new'>Create a New Spot</NavLink>
             {allSpotsArr.map(spot=>(
-                <div>
-                    <div className='single_card'>
+                <div key={spot.id}>
+                    <div key={spot.id} className='single_card'>
                         <img key={spot.id} src={spot.previewImage} alt={spot.name} className='spot_img'/>
                         <div>
                             {spot.name}
