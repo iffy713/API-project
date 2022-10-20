@@ -30,6 +30,14 @@ module.exports = {
       spotId: 4,
       url: "https://cdn.pixabay.com/photo/2018/09/24/15/02/bed-3700115_1280.jpg",
       preview: true,
+    },{
+      spotId: 5,
+      url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-52687395/original/80e8e103-766d-4af9-8658-752d0f2efcb3.jpeg?im_w=1200",
+      preview: true
+    },{
+      spotId: 6,
+      url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-52687395/original/547e8a35-dcdc-4d84-a373-7cb5eda4952f.jpeg?im_w=1200",
+      preview: true
     }
    ],{})
   },

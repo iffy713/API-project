@@ -60,6 +60,30 @@ module.exports = {
       description: "Glamping at its finest! Forest Garden Yurts are wooden yurts designed and built by Bill Coperthwaite in the 1970s for Tom Hess and Lory Brown as home and pottery studio.",
       price: 119.99
     },
+    {
+      ownerId: 1,
+      address: "20300 W Country Club",
+      city: "Aventura",
+      state: "FL",
+      country: "USA",
+      lat: 22.713120,
+      lng: -80.375110,
+      name: "The Sea Ranch",
+      description: "This cozy three-level home is set in coastal forestlands beneath towering redwoods in the historic south end of The Sea Ranch with no adjacent neighbors in sight.",
+      price: 129.99
+    },
+    {
+      ownerId: 1,
+      address: "980 Ives Dairy Rd",
+      city:"Miami",
+      state: "FL",
+      country: "USA",
+      lat: 25.003580,
+      lng: -81.725340,
+      name: "Miami's Iconic Case Study House",
+      description: "Of the few remaining Case Study Houses, it is the only one  available for vacation rental, a true classic of California Case Study House program. ",
+      price: 159.99
+    },
    ], {})
   },
 

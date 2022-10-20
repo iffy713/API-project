@@ -1,11 +1,16 @@
 
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-// import { Route, Switch } from "react-router-dom";
-// import LoginForm from "./components/LoginForm";
-// import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
+import { Route, Switch } from "react-router-dom";
+import Spots from "./components/Spots";
+import SpotDetails from "./components/Spots/SpotDetails";
+import SpotCurrentUser from "./components/Spots/SpotCurrentUser";
+import CreateNewSpotForm from "./components/Spots/CreateNewSpotForm";
+import UpdateSpotForm from "./components/Spots/SpotUpdate";
+import UserReviews from "./components/Reviews";
+import CreateReviewForm from "./components/Reviews/CreateReviewForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,16 +22,39 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      {/* {isLoaded && (
-        <Switch> */}
-          {/* <Route path="/login">
-            <LoginForm />
-          </Route> */}
-          {/* <Route path="/signup">
-            <SignupFormPage />
-          </Route> */}
-        {/* </Switch>
-      )} */}
+      <Switch>
+
+        <Route exact path='/spots/:spotId/update'>
+          <UpdateSpotForm/>
+        </Route>
+
+
+        <Route exact path='/spots/current/new'>
+          <CreateNewSpotForm />
+        </Route>
+
+        <Route exact path={'/spots/current'}>
+          <SpotCurrentUser />
+        </Route>
+
+        <Route exact path={'/reviews/new'}>
+          <CreateReviewForm />
+        </Route>
+
+        <Route exact path={'/spots/:spotId'}>
+          <SpotDetails />
+        </Route>
+
+        <Route exact path={'/reviews/current'}>
+          <UserReviews />
+        </Route>
+
+
+        <Route exact path='/'>
+          <Spots />
+        </Route>
+
+      </Switch>
     </>
   );
 }

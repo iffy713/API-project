@@ -1,0 +1,12 @@
+.spot_card_container {
+    /* border: 1px solid black; */
+    display: inline-block;
+
+}
+
+.single_card {
+    border: 1px solid black;
+    width: 250px;
+    height: 300px;
+    margin: 5px;
+}
