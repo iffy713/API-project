@@ -19,10 +19,7 @@ export default function CreateNewSpotForm(){
     const [errors, setErrors] = useState([])
     const [imageUrl, setImageUrl] = useState()
 
-    // useEffect(()=>{
-    //     dispatch()
-    // })
-
+   
     const handleSubmit = async e =>{
         e.preventDefault()
 

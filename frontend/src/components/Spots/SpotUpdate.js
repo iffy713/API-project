@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { useHistory } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { useHistory, useParams } from "react-router-dom"
+import { getSpotDetails, updateSpot } from "../../store/spots"
 
 export default function UpdateSpotForm(){
 
-    const spotObj = useSelector(state => state.spot.singleSpot)
-    
+    // const spotObj = useSelector(state => state.spot.singleSpot)
 
+    const { spotId } = useParams()
     const history = useHistory()
     const dispatch = useDispatch()
     const [address, setAddress] = useState()
@@ -18,11 +19,11 @@ export default function UpdateSpotForm(){
     const [name, setName] = useState()
     const [price, setPrice] = useState()
     const [description, setDesprition] = useState()
-    const [errors, setErrors] = useState([])
+    // const [errors, setErrors] = useState([])
 
-    // useEffect(()=>{
-    //     dispatch()
-    // })
+    useEffect(()=>{
+        dispatch(getSpotDetails(spotId))
+    },[dispatch, spotId])
 
     const handleSubmit = async e =>{
         e.preventDefault()
@@ -43,7 +44,11 @@ export default function UpdateSpotForm(){
         // if(createNewSpot){
         //     history.push(`/spots/current`)
         // }
-        let updatedSpot = await dispatch(updatedSpot())
+        let updatedSpot = await dispatch(updateSpot(spotId,newSpot))
+        if(updatedSpot){
+            // setErrors([])
+            history.push('/spots/current')
+        }
     }
 
     return(

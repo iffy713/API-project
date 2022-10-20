@@ -9,8 +9,9 @@ export default function SpotCard(){
     const dispatch = useDispatch()
     const allSpotsObj = useSelector(state=>state.spot.allSpots)
     const allSpotsArr = Object.values(allSpotsObj)
+    console.log("***************is this an array?",allSpotsArr)
 
-    // console.log("allSpotsArr============", allSpotsArr)
+
     useEffect(()=>{
         dispatch(getAllSpots())
     },[dispatch])

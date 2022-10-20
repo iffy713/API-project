@@ -37,7 +37,7 @@ export default function SpotCurrentUser() {
                         <NavLink to={`/spots/${spot.id}/update`}>
                             <button>Update</button>
                         </NavLink>
-                        <button onClick={()=>dispatch(deleteSingleSpot(spot.id))}>Delete</button>
+                        <button onClick={()=> dispatch(deleteSingleSpot(spot.id))}>Delete</button>
                     </div>
                 </div>
             ))}
