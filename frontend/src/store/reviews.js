@@ -3,7 +3,7 @@ import { csrfFetch } from "./csrf";
 const LOAD_USER_REVIEWS = 'reviews/loadUserReviews'
 const LOAD_SPOT_REVIEWS = 'reviews/loadSpotReviews'
 
-// const CREATE_REVIEW = 'reviews/create'
+const CREATE_REVIEW = 'reviews/create'
 const DELETE_REVIEW = 'reviews/delete'
 
 const loadReviewsOfUser = (reviews) => {
@@ -20,11 +20,12 @@ const loadReviewsOfSpot = (reviews) => {
     }
 }
 
-// const createReview = () => {
-//     return {
-//         type: CREATE_REVIEW
-//     }
-// }
+const createReview = (review) => {
+    return {
+        type: CREATE_REVIEW,
+        review
+    }
+}
 
 
 
@@ -67,6 +68,25 @@ export const deleteReviewOfUser = (reviewId)=> async (dispatch)=> {
     }
 }
 
+export const createSpotReview = (data, spotId,owner)=> async (dispatch) =>{
+    console.log(spotId)
+    console.log("owner in thunk==============",owner)
+    const res = await csrfFetch(`/api/spots/${spotId}/reviews`,{
+        method:'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+    if(res.ok){
+        const newReview = await res.json()
+        console.log("============newReview in thunk", newReview)
+        newReview.User = owner
+
+        dispatch(createReview(newReview,))
+    }
+}
+
 const initialState = { spot:{}, user:{} }
 const reviewReducer = (state=initialState, action)=>{
     let newState = {}
@@ -89,8 +109,19 @@ const reviewReducer = (state=initialState, action)=>{
                 spot: newState
             }
 
-        case DELETE_REVIEW:
+        // *************
+        case CREATE_REVIEW:
             newState = {...state}
+            console.log("=============new review",action.review)
+            newState.spot ={
+                ...state.spot,
+                [action.review.id] : action.review
+            }
+            return newState
+
+        case DELETE_REVIEW:
+            newState = {spot:{},user: {...state.user}}
+            console.log("review state in reducer!!!!!!!", newState)
             delete newState.user[action.reviewId]
             return newState
         default:

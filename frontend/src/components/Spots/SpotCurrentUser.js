@@ -1,12 +1,13 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { NavLink } from "react-router-dom"
+import { NavLink, useHistory } from "react-router-dom"
 import { getSpotCurrentUser } from "../../store/spots"
 import { deleteSingleSpot } from "../../store/spots"
 import './SpotCurrentUser.css'
 
 export default function SpotCurrentUser() {
 
+    // const history = useHistory()
     const dispatch = useDispatch()
     const allSpotsObj = useSelector(state=>state.spot.allSpots)
     const allSpotsArr = Object.values(allSpotsObj)
@@ -15,6 +16,8 @@ export default function SpotCurrentUser() {
     useEffect(()=>{
         dispatch(getSpotCurrentUser())
     },[dispatch])
+
+
 
     if(!allSpotsArr) return null
 
@@ -37,7 +40,7 @@ export default function SpotCurrentUser() {
                         <NavLink to={`/spots/${spot.id}/update`}>
                             <button>Update</button>
                         </NavLink>
-                        <button onClick={()=> dispatch(deleteSingleSpot(spot.id))}>Delete</button>
+                        <button onClick={()=>dispatch(deleteSingleSpot(spot.id))}>Delete</button>
                     </div>
                 </div>
             ))}

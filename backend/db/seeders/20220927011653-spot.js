@@ -61,7 +61,7 @@ module.exports = {
       price: 119.99
     },
     {
-      ownerId: 1,
+      ownerId: 2,
       address: "20300 W Country Club",
       city: "Aventura",
       state: "FL",
@@ -73,16 +73,16 @@ module.exports = {
       price: 129.99
     },
     {
-      ownerId: 1,
-      address: "980 Ives Dairy Rd",
-      city:"Miami",
-      state: "FL",
+      ownerId: 2,
+      address: "105 Shell Rd",
+      city:"Watsonville",
+      state: "CA",
       country: "USA",
       lat: 25.003580,
       lng: -81.725340,
       name: "Miami's Iconic Case Study House",
-      description: "Of the few remaining Case Study Houses, it is the only one  available for vacation rental, a true classic of California Case Study House program. ",
-      price: 159.99
+      description: "Positioned on the oceanfront, this 3,000+ sq. ft home has one of the most spectacular views along the coastline and is situated on one of the most private stretches of beach in Monterey Bay. ",
+      price: 899.99
     },
    ], {})
   },

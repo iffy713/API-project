@@ -15,7 +15,7 @@ module.exports = {
     {
       spotId: 1 ,
       userId: 1 ,
-      review: "Great place tucked away - it’s a little oasis behind the front house!",
+      review: "Great place tucked away - it is a little oasis behind the front house!",
       stars: 5 ,
     },
     {
@@ -53,6 +53,18 @@ module.exports = {
       userId: 1,
       review: "Amazing property! The neighborhood was quiet as promised and the space is beautiful.",
       stars: 4
+    },
+    {
+      spotId: 6,
+      userId: 1,
+      review: "Local beach, beautiful and may be reached by car or bicycle. Relax for the day or go early and watch for whales and dolphins.",
+      stars: 5
+    },
+    {
+      spotId: 6,
+      userId: 2,
+      review: "Best beach on the Central Coast. Only 15 minutes by car.",
+      stars: 5
     }
    ], {})
   },

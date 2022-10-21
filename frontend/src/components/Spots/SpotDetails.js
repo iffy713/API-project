@@ -1,28 +1,44 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getReviewsOfSpot } from '../../store/reviews';
 import { getSpotDetails } from '../../store/spots';
-// import CreateReviewForm from '../Reviews/CreateReviewForm';
+import CreateReviewFormModal from '../CreateReviewModal'
 import ReviewOfSpot from '../Reviews/ReviewOfSpot';
+
 // path: '/spots/:spotId'
 export default function SpotDetails(){
 
     const dispatch = useDispatch()
     const { spotId } = useParams()
-    const singleSpot = useSelector(state=>state.spot.singleSpot)
+    const singleSpot = useSelector(state=>state.spot.singleSpot) //object
+    console.log("!!!!!!!!!!!!!!!!!!!singleSpot!!!!!",singleSpot)
 
     const reviews = useSelector(state=>state.reviews.spot)
     const reviewsArr = Object.values(reviews)
 
-    const userId = useSelector(state=>state.session.user.id)
+    let userId
+    const user = useSelector(state =>state.session.user)
+    if(user) {
+        userId = user.id
+    }
+
+    // const userId = useSelector(state=>state.session.user.id)
+    // console.log("!!!!!session", session)
+    // console.log("==========userId",userId)
 
     useEffect(()=>{
         dispatch(getSpotDetails(spotId))
         dispatch(getReviewsOfSpot(spotId))
     },[dispatch,spotId])
 
-    if(!singleSpot) return null
+    // if(!session) return null
+
+    // let images = []
+    if (!singleSpot) return null
+    if(!singleSpot.SpotImages || !singleSpot.Owner) return null
+
+    console.log("!!!!!!!!!!", spotId)
 
     return (
         <div>
@@ -53,6 +69,9 @@ export default function SpotDetails(){
                 <div>
                     <ReviewOfSpot spotId={spotId}/>
                 </div>
+                {userId && singleSpot.Owner.id !== userId && (
+                    <CreateReviewFormModal />
+                )}
             </div>
         </div>
         // {singleSpot.Owner.id===userId?<div></div>:

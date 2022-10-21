@@ -36,7 +36,11 @@ const validateSpot = [
       .withMessage('Description is required'),
     check('price')
       .exists({checkFalsy: true})
-      .withMessage('Pirce per day is required'),
+      // .isNumeric()
+      .withMessage('Please enter a valid price.'),
+    // check('url')
+    //   .isURL('url'['http','https','ftp'])
+    //   .withMessage('Please attach a valid image url.'),
     handleValidationErrors
 ]
 
@@ -296,6 +300,7 @@ router.get('/:spotId', async(req, res)=>{
   spot.dataValues.avgStarRating = reviewsCount
   spot.dataValues.numReviews = reviewsCount
 
+  // return res.redirect(`/${spotId}`)
   return res.json(spot)
 })
 

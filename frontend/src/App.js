@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import * as sessionActions from "./store/session";
@@ -7,10 +6,9 @@ import { Route, Switch } from "react-router-dom";
 import Spots from "./components/Spots";
 import SpotDetails from "./components/Spots/SpotDetails";
 import SpotCurrentUser from "./components/Spots/SpotCurrentUser";
-import CreateNewSpotForm from "./components/Spots/CreateNewSpotForm";
 import UpdateSpotForm from "./components/Spots/SpotUpdate";
 import UserReviews from "./components/Reviews";
-import CreateReviewForm from "./components/Reviews/CreateReviewForm";
+import CreateNewSpotForm from "./components/Spots/CreateNewSpotForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,17 +26,8 @@ function App() {
           <UpdateSpotForm/>
         </Route>
 
-
-        <Route exact path='/spots/current/new'>
-          <CreateNewSpotForm />
-        </Route>
-
         <Route exact path={'/spots/current'}>
           <SpotCurrentUser />
-        </Route>
-
-        <Route exact path={'/reviews/new'}>
-          <CreateReviewForm />
         </Route>
 
         <Route exact path={'/spots/:spotId'}>
@@ -47,6 +36,10 @@ function App() {
 
         <Route exact path={'/reviews/current'}>
           <UserReviews />
+        </Route>
+
+        <Route exact path={'/spots/current/new'}>
+          <CreateNewSpotForm />
         </Route>
 
 

@@ -19,7 +19,7 @@ export default function CreateNewSpotForm(){
     const [errors, setErrors] = useState([])
     const [imageUrl, setImageUrl] = useState()
 
-   
+
     const handleSubmit = async e =>{
         e.preventDefault()
 
@@ -38,6 +38,12 @@ export default function CreateNewSpotForm(){
 
 
         let createdSpot = await dispatch(createNewSpot(newSpot))
+            .catch(async(res)=> {
+                const data = await res.json()
+                console.log("trying to create a new spot", data)
+                if(data && data.errors) setErrors(data.errors)
+                // console.log(errors)
+            })
         if(createdSpot){
             setErrors([])
             history.push(`/spots/current`)
@@ -48,6 +54,11 @@ export default function CreateNewSpotForm(){
         <div>
             <div>Create a new spot</div>
             <form onSubmit={handleSubmit}>
+                <ul>
+                    {errors.map(err => (
+                        <li key={err}>{err}</li>
+                    ))}
+                </ul>
                 <div>
                     <input placeholder="Address"
                         required

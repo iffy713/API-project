@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getReviewsOfSpot } from "../../store/reviews"
 
@@ -9,8 +9,15 @@ export default function ReviewOfSpot({spotId}) {
 
     useEffect(()=>{
         dispatch(getReviewsOfSpot(spotId))
+        setLoaded(true)
     }, [dispatch,spotId])
 
+    const [loaded, setLoaded] = useState(false)
+
+    console.log("reviews OBJ================", reviewsObj)
+    console.log('reviews array=============', reviewsArr)
+
+    if(!loaded) return null
 
     return (
         <div>
@@ -28,7 +35,7 @@ export default function ReviewOfSpot({spotId}) {
                 </div>
             ))}
 
-            
+
         </div>
     )
 }
