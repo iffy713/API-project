@@ -8,16 +8,20 @@ span {
 
 #user_circle {
     background-color: white;
-    border: white;
+    border: gray 1px solid;
+    border-radius: 20px;
     cursor: pointer;
 }
+ #user_circle:hover {
+    color: rgb(229,31,92);
+ }
 
-.fa-circle-user {
+.fa-circle-user  {
     font-size: 30px;
 }
-
-.fa-circle-user:hover {
-    color: rgb(229,31,92);
+.fa-bars {
+    font-size: 30px;
+    margin: 4px;
 }
 
 li {

@@ -1,10 +1,13 @@
 import { useDispatch, useSelector} from "react-redux"
 import React, { useState } from "react"
 import { createSpotReview } from "../../store/reviews"
+// import {  useHistory } from "react-router-dom";
+
 
 export default function CreateReviewForm(){
 
     const dispatch = useDispatch()
+    // const history = useHistory()
 
     const [ review, setReview ] = useState('')
     const [ stars, setStars ] = useState(5)
@@ -18,6 +21,7 @@ export default function CreateReviewForm(){
     const onSubmit = e => {
         e.preventDefault()
         setErrors([])
+        // history.push(`/spots/${singleSpot.id}`)
 
         // console.log("spotId in modal!!!!!!!!!!!",spotId)
         const newReview = {
@@ -25,10 +29,10 @@ export default function CreateReviewForm(){
             stars
         }
 
-        return dispatch(createSpotReview(newReview, singleSpot.id,currentUser))
+        return dispatch(createSpotReview(newReview, singleSpot.id,currentUser))//.then(history.push(`/spots/${singleSpot.id}`))
             .catch(async(res)=> {
                 const data = await res.json()
-                console.log("trying to create a review!!!!!!!!!!!",data)
+                // console.log("trying to create a review!!!!!!!!!!!",data)
 
                 if(data && data.statusCode) setErrors(data.message)
             })
@@ -40,10 +44,9 @@ export default function CreateReviewForm(){
             <form onSubmit={onSubmit}>
                 <h2>How was your stay?...</h2>
                 <ul>
-                    {/* {errors.map((error)=> (
+                    {errors.map((error)=> (
                         <li key={error}>{error}</li>
-                    ))} */}
-                    {errors}
+                    ))}
                 </ul>
                 <div>
                     <textarea placeholder="Leave your review here..."

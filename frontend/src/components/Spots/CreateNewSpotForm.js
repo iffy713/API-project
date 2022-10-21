@@ -22,7 +22,7 @@ export default function CreateNewSpotForm(){
 
     const handleSubmit = async e =>{
         e.preventDefault()
-
+        setErrors([])
         const newSpot = {
             address,
             city,
@@ -42,7 +42,7 @@ export default function CreateNewSpotForm(){
                 const data = await res.json()
                 console.log("trying to create a new spot", data)
                 if(data && data.errors) setErrors(data.errors)
-                // console.log(errors)
+                console.log(errors)
             })
         if(createdSpot){
             setErrors([])

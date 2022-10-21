@@ -19,7 +19,7 @@ export default function UpdateSpotForm(){
     const [name, setName] = useState()
     const [price, setPrice] = useState()
     const [description, setDesprition] = useState()
-    // const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState([])
 
     useEffect(()=>{
         dispatch(getSpotDetails(spotId))
@@ -27,7 +27,7 @@ export default function UpdateSpotForm(){
 
     const handleSubmit = async e =>{
         e.preventDefault()
-
+        setErrors([])
         const newSpot = {
             address,
             city,
@@ -40,13 +40,16 @@ export default function UpdateSpotForm(){
             description
         }
 
-        // let createdSpot = await dispatch(createNewSpot(newSpot))
-        // if(createNewSpot){
-        //     history.push(`/spots/current`)
-        // }
+
         let updatedSpot = await dispatch(updateSpot(spotId,newSpot))
+            .catch(async(res)=> {
+                const data = await res.json()
+                console.log("trying to update a spot", data)
+                if(data && data.errors) setErrors(data.errors)
+                console.log(errors)
+            })
         if(updatedSpot){
-            // setErrors([])
+            setErrors([])
             history.push('/spots/current')
         }
     }
@@ -55,6 +58,11 @@ export default function UpdateSpotForm(){
         <div>
             <div>Update My Spot</div>
             <form onSubmit={handleSubmit}>
+                <ul>
+                    {errors.map(err => (
+                        <li key={err}>{err}</li>
+                    ))}
+                </ul>
                 <div>
                     <input placeholder="Address"
                         required

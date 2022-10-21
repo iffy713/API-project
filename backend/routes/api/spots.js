@@ -23,10 +23,12 @@ const validateSpot = [
       .withMessage('Country is required'),
     check('lat')
       .exists({checkFalsy: true})
-      .withMessage('Latitude is not valid'),
+      .isInt({min:-90,max:90})
+      .withMessage('Latitude should between -90 and 90.'),
     check('lng')
       .exists({checkFalsy: true})
-      .withMessage('Longitude is not valid'),
+      .isInt({min:-180, max:180})
+      .withMessage('Longitude should between -180 and 180'),
     check('name')
       .exists({checkFalsy: true})
       .isLength({max:50})
@@ -36,6 +38,7 @@ const validateSpot = [
       .withMessage('Description is required'),
     check('price')
       .exists({checkFalsy: true})
+      .isInt({min: 1})
       // .isNumeric()
       .withMessage('Please enter a valid price.'),
     // check('url')
@@ -306,7 +309,7 @@ router.get('/:spotId', async(req, res)=>{
 
 //Error Response: Body validation error (400)
 //========================Edit a Spot=====================
-router.put('/:spotId', requireAuth,validateSpot, async(req, res)=>{
+router.put('/:spotId', validateSpot,requireAuth, async(req, res)=>{
   const { address, city, state, country, lat, lng, name, description, price } = req.body
   const spot = await Spot.findByPk(req.params.spotId)
   if(!spot){
