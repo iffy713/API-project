@@ -64,7 +64,7 @@ const addImage = (img, spot) =>{
 export const getAllSpots = () => async (dispatch)=>{
     const res = await csrfFetch('/api/spots')
     const data = await res.json()
-    console.log("data in thunkkkkkkkkkkkkkkkkk", data)
+    // console.log("data in thunkkkkkkkkkkkkkkkkk", data)
     if(res.ok){
         dispatch(loadSpots(data.Spots))
     }
@@ -74,7 +74,7 @@ export const getSpotDetails = (spotId) => async (dispatch) =>{
     const res = await csrfFetch(`/api/spots/${spotId}`)
     if(res.ok){
         const data = await res.json()
-        console.log("!!!!!!!!!data in thunk==========",data)
+        // console.log("!!!!!!!!!data in thunk==========",data)
         dispatch(loadSpotDetails(data))
     }
 }
@@ -100,7 +100,7 @@ export const createNewSpot = data => async (dispatch) => {
     const { imageUrl } = data
     if(res.ok){
         const newSpot = await res.json()
-        console.log('newSpot in thunk=========', newSpot)
+        // console.log('newSpot in thunk=========', newSpot)
         dispatch(createSpot(newSpot))
 
         //add Spot Image Url
@@ -116,7 +116,7 @@ export const createNewSpot = data => async (dispatch) => {
         })
         if(resImg.ok){
             const dataImg = await resImg.json()
-            console.log(".......imgUrl in thunk", dataImg)
+            // console.log(".......imgUrl in thunk", dataImg)
             dispatch(addImage(dataImg, newSpot))
             return newSpot
         }
@@ -143,7 +143,7 @@ export const deleteSingleSpot = (spotId) => async (dispatch) => {
         method: 'DELETE',
     })
     if(res.ok) {
-        console.log("deleted data in thunk!!!!!!!!",res.json())
+        // console.log("deleted data in thunk!!!!!!!!",res.json())
         dispatch(deleteSpot(spotId))
     }
 }

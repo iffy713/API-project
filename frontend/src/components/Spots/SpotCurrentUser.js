@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { NavLink, useHistory } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { getSpotCurrentUser } from "../../store/spots"
 import { deleteSingleSpot } from "../../store/spots"
 import './SpotCurrentUser.css'

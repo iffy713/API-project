@@ -9,9 +9,9 @@ export default function UserReviews(){
     const history = useHistory()
     const dispatch = useDispatch()
     const userReviewsObj = useSelector(state=>state.reviews.user)
-    console.log("I am here!!!!!",userReviewsObj)
+    // console.log("I am here!!!!!",userReviewsObj)
     const userReviewsArr = Object.values(userReviewsObj)
-    console.log("is this an array?????????", userReviewsArr)
+    // console.log("is this an array?????????", userReviewsArr)
 
     useEffect(()=>{
         dispatch(getReviewsOfCurrentUser(userReviewsArr))
