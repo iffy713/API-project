@@ -83,6 +83,10 @@ export default function SpotDetails(){
                 <div className='owner_review'>
                     <div className='owner_name'>
                         <h2>Hosted by {singleSpot.Owner.firstName}</h2>
+                        <div>
+                            <i className='fas fa-solid fa-star'/>{singleSpot.avgStarRating}
+                            <span style={{fontWeight:"bold"}}>·</span>{reviewsArr.length} reviews
+                        </div>
                     </div>
                     <div className='price_pannel'>
                         <div>
@@ -91,10 +95,7 @@ export default function SpotDetails(){
                             </span>
                             night
                         </div>
-                        <div>
-                            {reviewsArr.length} reviews
-                            <i className='fas fa-solid fa-star'/>{singleSpot.avgStarRating}
-                        </div>
+
                             {userId && singleSpot.Owner.id !== userId && (
                                 <CreateReviewFormModal />
                             )}

@@ -37,7 +37,7 @@ export default function SpotCard(){
                                 <span><i className='fas fa-solid fa-star'/> {spot.avgRating}</span>
                             </div>
                                 <div className="spot_price">
-                                    <span>${spot.price} night</span>
+                                    <span style={{fontWeight: "bold"}}>${spot.price}<span style={{fontWeight: "normal"}}>night</span></span>
                                 </div>
                         </NavLink>
                     </div>

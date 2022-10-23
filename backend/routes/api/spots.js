@@ -168,7 +168,12 @@ router.get('/',validateQuery, async(req,res)=>{
 
 
         //previewImage added
-        const spotImage = await SpotImage.findByPk(spot.id)
+        const spotImage = await SpotImage.findOne({
+          where: {
+            spotId: spot.id
+          }
+        })
+
         if(spotImage){
           spot.dataValues.previewImage = spotImage.url
         } else {
