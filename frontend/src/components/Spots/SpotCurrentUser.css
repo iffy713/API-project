@@ -1,7 +1,15 @@
-.spot_card_container {
-    /* border: 1px solid black; */
-    display: inline-block;
+.my_listing_container {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 80%;
+}
 
+#listed_spots_container {
+    display: flex;
+    flex-direction: row;
 }
 
 .single_card {
@@ -9,4 +17,32 @@
     width: 250px;
     height: 300px;
     margin: 5px;
+}
+
+#create_spot_btn {
+    border: #f1f1f1 1px solid;
+   border-radius: 12px;
+   cursor: pointer;
+   font-size: 15px;
+}
+
+#create_spot_btn:hover {
+    background-color: rgb(229,31,92);
+    color: white;
+    border: rgb(229,31,92) solid 1px;
+}
+
+
+
+#delete_btn {
+   border: #f1f1f1 1px solid;
+   border-radius: 12px;
+   cursor: pointer;
+   font-size: 15px;
+}
+
+#delete_btn:hover {
+    background-color: rgb(229,31,92);
+    color: white;
+    border: rgb(229,31,92) solid 1px;
 }

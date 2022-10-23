@@ -22,28 +22,34 @@ export default function SpotCurrentUser() {
     if(!allSpotsArr) return null
 
     return (
-        <div className='spot_card_container'>
-            <h2>All My Spots</h2>
-            <NavLink to='/spots/current/new'>Create a New Spot</NavLink>
-            {allSpotsArr.map(spot=>(
-                <div key={spot.id}>
-                    <div key={spot.id} className='single_card'>
-                        <img key={spot.id} src={spot.previewImage} alt={spot.name} className='spot_img'/>
-                        <div>
-                            {spot.name}
-                            <span><i className='fas fa-solid fa-star'/>{spot.avgRating}</span>
+        <div className='my_listing_container'>
+            <h2>Manage My Listings</h2>
+            <NavLink to='/spots/current/new'>
+                <button id="create_spot_btn">
+                    Create a New Spot
+                </button>
+            </NavLink>
+            <div id="listed_spots_container">
+                {allSpotsArr.map(spot=>(
+                    <div key={spot.id}>
+                        <div key={spot.id} className='single_card'>
+                            <div id="current_user_spot_img_container" className="display_img_container">
+                                <img key={spot.id} src={spot.previewImage} alt={spot.name} className='spot_img'/>
+                            </div>
+                            <div>
+                                {spot.name}
+                                <span><i className='fas fa-solid fa-star'/>{spot.avgRating}</span>
+                            </div>
+                            <div>{spot.city},{spot.state}</div>
+                            <div>{spot.price} night</div>
+                            <div>
+                                <button id='delete_btn' onClick={()=>dispatch(deleteSingleSpot(spot.id))}>Delete</button>
+                            </div>
                         </div>
-                        <div>{spot.city},{spot.state}</div>
-                        <div>{spot.price} night</div>
                     </div>
-                    <div>
-                        <NavLink to={`/spots/${spot.id}/update`}>
-                            <button>Update</button>
-                        </NavLink>
-                        <button onClick={()=>dispatch(deleteSingleSpot(spot.id))}>Delete</button>
-                    </div>
-                </div>
-            ))}
+                ))}
+
+            </div>
         </div>
     )
 }
