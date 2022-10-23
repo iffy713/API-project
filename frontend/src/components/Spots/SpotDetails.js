@@ -14,7 +14,7 @@ export default function SpotDetails(){
     const { spotId } = useParams()
     const singleSpot = useSelector(state=>state.spot.singleSpot) //object
 
-    console.log("!!!!!!!!!!!!!!!!!!!singleSpot!!!!!",singleSpot)
+    // console.log("!!!!!!!!!!!!!!!!!!!singleSpot!!!!!",singleSpot)
 
     const reviews = useSelector(state=>state.reviews.spot)
     const reviewsArr = Object.values(reviews)
@@ -95,7 +95,6 @@ export default function SpotDetails(){
                             </span>
                             night
                         </div>
-
                             {userId && singleSpot.Owner.id !== userId && (
                                 <CreateReviewFormModal />
                             )}

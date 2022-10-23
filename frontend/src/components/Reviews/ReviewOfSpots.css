@@ -1,0 +1,47 @@
+#my_reviews_container_outer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    /* border: 3px solid black; */
+    margin: auto;
+}
+
+#my_reviews_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: red 5px solid; */
+}
+
+#my_single_review {
+    width: 50%;
+    /* box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px; */
+    /* border: 4px yellow solid; */
+    /* box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px; */
+    /* border-radius: 12px; */
+
+
+    margin: auto;
+
+}
+
+#review_delete_btn_container{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+#review_delete_btn {
+    margin: auto;
+    cursor: pointer;
+    background-color: rgb(229,31,92);
+    color: azure;
+    height: 25px;
+    width: 30%;
+    border-radius: 20px;
+    border: rgb(229,31,92);
+    font-size: 15px;
+    padding: 5px;
+    margin: 10px;
+}

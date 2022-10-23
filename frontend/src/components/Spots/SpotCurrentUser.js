@@ -43,6 +43,9 @@ export default function SpotCurrentUser() {
                             <div>{spot.city},{spot.state}</div>
                             <div>{spot.price} night</div>
                             <div>
+                                <NavLink to={`/spots/${spot.id}/update`}>
+                                    <button>Update</button>
+                                 </NavLink>
                                 <button id='delete_btn' onClick={()=>dispatch(deleteSingleSpot(spot.id))}>Delete</button>
                             </div>
                         </div>
