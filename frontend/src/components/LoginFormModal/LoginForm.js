@@ -6,7 +6,7 @@ import './LoginForm.css';
 
 function LoginForm() {
   const dispatch = useDispatch();
-  
+
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
@@ -21,7 +21,9 @@ function LoginForm() {
     return dispatch(sessionActions.login({ credential, password }))
       .catch(async (res) => {
         const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
+        console.log("trying to login !!!!!!",data)
+        // if (data && data.errors) setErrors(data.errors);
+        if(data && data.message) setErrors(data.message)
       });
   }
 
@@ -31,8 +33,9 @@ function LoginForm() {
           <div id='login_title'>
             <h2 >Log in</h2>
           </div>
-        <ul>
-            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        <ul className="error_messages">
+            {/* {errors.map((error, idx) => <li key={idx}>{error}</li>)} */}
+            {errors}
         </ul>
         <div>
           <input

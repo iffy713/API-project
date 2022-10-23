@@ -42,7 +42,7 @@ export default function CreateNewSpotForm(){
                 const data = await res.json()
                 console.log("trying to create a new spot", data)
                 if(data && data.errors) setErrors(data.errors)
-                console.log(errors)
+                // console.log(errors)
             })
         if(createdSpot){
             setErrors([])
@@ -54,7 +54,7 @@ export default function CreateNewSpotForm(){
         <div>
             <div>Create a new spot</div>
             <form onSubmit={handleSubmit}>
-                <ul>
+                <ul className="error_messages">
                     {errors.map(err => (
                         <li key={err}>{err}</li>
                     ))}

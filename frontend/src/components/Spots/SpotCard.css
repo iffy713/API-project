@@ -1,19 +1,67 @@
+*{
+    font-family: sans-serif;
+}
+
 .spot_card_container {
     /* border: 1px solid black; */
-    display: inline-block;
+    display: flex;
+    margin-top: 50px;
+    width: 100%;
+    justify-content: center;
+
+}
+
+.spot_card_outer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
 
 }
 
 .single_card {
-    border: 1px solid black;
-    border-radius: 10px;
+    height: 278px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 292px;
+    padding: 20px;
+
+}
+
+.display_img_container {
     width: 250px;
-    height: 300px;
-    margin: 5px;
+    height: 246px;
 }
 
 .spot_img {
-    width: 250px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
+    object-fit: cover;
 }
+.nav_to_details {
+    border:transparent;
+    text-decoration: none;
+    color: rgb(34, 34, 34);
+}
+.location_rate {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+}
+.spot_price {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+
+/* .single_card {
+    width: 250px;
+    height: 300px;
+    margin: 5px;
+} */

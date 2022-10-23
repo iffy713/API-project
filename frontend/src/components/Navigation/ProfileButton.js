@@ -45,11 +45,12 @@ function ProfileButton({ user }) {
         <ul className="profile-dropdown">
           <li className="show_menu_element">{user.username}</li>
           <li className="show_menu_element">{user.email}</li>
-          <li>
-            <NavLink exact to={'/spots/current'}>Manage Listings</NavLink>
+          <hr></hr>
+          <li className="show_menu_element">
+            <NavLink className={'nav_listing_reviews'} exact to={'/spots/current'}>Manage Listings</NavLink>
           </li>
-          <li>
-            <NavLink exact to={'/reviews/current'}>Manage Reviews</NavLink>
+          <li className="show_menu_element">
+            <NavLink className={'nav_listing_reviews'} exact to={'/reviews/current'}>Manage Reviews</NavLink>
           </li>
           <li className="show_menu_element">
             <button onClick={logout} id="log_out_button">Log Out</button>

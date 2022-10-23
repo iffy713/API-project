@@ -21,20 +21,20 @@ export default function CreateReviewForm(){
     const onSubmit = e => {
         e.preventDefault()
         setErrors([])
-        // history.push(`/spots/${singleSpot.id}`)
 
-        // console.log("spotId in modal!!!!!!!!!!!",spotId)
         const newReview = {
             review,
             stars
         }
 
+
+
         return dispatch(createSpotReview(newReview, singleSpot.id,currentUser))//.then(history.push(`/spots/${singleSpot.id}`))
             .catch(async(res)=> {
                 const data = await res.json()
-                // console.log("trying to create a review!!!!!!!!!!!",data)
+                console.log("trying to create a review!!!!!!!!!!!",data)
 
-                if(data && data.statusCode) setErrors(data.message)
+                if(data && data.message) setErrors(data.message)
             })
     }
 
@@ -43,10 +43,8 @@ export default function CreateReviewForm(){
             <h2>This is CreateReviewForm component</h2>
             <form onSubmit={onSubmit}>
                 <h2>How was your stay?...</h2>
-                <ul>
-                    {errors.map((error)=> (
-                        <li key={error}>{error}</li>
-                    ))}
+                <ul className="error_messages">
+                    {errors}
                 </ul>
                 <div>
                     <textarea placeholder="Leave your review here..."
