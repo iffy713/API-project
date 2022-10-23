@@ -27,15 +27,16 @@ function Navigation({ isLoaded }){
 
   return (
     <div className='nav_link_bar'>
-      <ul className="nav_header">
-        <li>
-          <span>
+      <ul>
+        <li className="nav_header">
             <NavLink exact to="/" id='nav_home'>
               <div id='airbvb_logo'>
-                Logo image here
+                  <img  id="logo_image" src="http://drive.google.com/uc?export=view&id=1MJTOXHESiifE9Hbtkp54Yy96OFDeCGGn" alt='logo'/>
+                  <span id="logo_text">
+                    airbvb
+                  </span>
               </div>
             </NavLink>
-          </span>
           {isLoaded && sessionLinks}
         </li>
       </ul>

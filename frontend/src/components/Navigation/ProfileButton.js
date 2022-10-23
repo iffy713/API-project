@@ -35,15 +35,17 @@ function ProfileButton({ user }) {
 
   return (
     <>
+    <div className="button_container">
       <button onClick={openMenu}
         id="user_circle"
       >
         <i className="fa-solid fa-bars" />
         <i className="fa-solid fa-circle-user" />
       </button>
+    </div>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li className="show_menu_element">{user.username}</li>
+          <li className="show_menu_element">Hello, {user.username}</li>
           <li className="show_menu_element">{user.email}</li>
           <hr></hr>
           <li className="show_menu_element">
