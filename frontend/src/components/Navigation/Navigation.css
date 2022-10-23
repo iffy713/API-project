@@ -47,7 +47,7 @@ span {
     border: #DDDDDD 1px solid;
     border-radius: 20px;
     cursor: pointer;
-    padding: 5px, 5px, 5px, 12px
+    padding: 5px, 5px, 5px, 12px;
 }
  #user_circle:hover {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 3px 5px;
