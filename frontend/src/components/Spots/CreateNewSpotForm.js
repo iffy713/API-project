@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { createNewSpot } from "../../store/spots"
+import './CreateNewSpotForm.css'
 
 export default function CreateNewSpotForm(){
 
@@ -51,9 +52,13 @@ export default function CreateNewSpotForm(){
     }
 
     return(
-        <div>
-            <div>Create a new spot</div>
-            <form onSubmit={handleSubmit}>
+        <div id='creat_spot_form_container'>
+            <div>
+                <h1 id="title_of_create_form">Create a new spot</h1>
+            </div>
+            <form onSubmit={handleSubmit}
+                id='create_spot_form'
+            >
                 <ul className="error_messages">
                     {errors.map(err => (
                         <li key={err}>{err}</li>
@@ -124,14 +129,6 @@ export default function CreateNewSpotForm(){
                     />
                 </div>
                 <div>
-                    <textarea placeholder="Description"
-                        required
-                        type={'text'}
-                        value={description}
-                        onChange={e=>setDesprition(e.target.value)}
-                    />
-                </div>
-                <div>
                     <input placeholder='Image Url'
                         required
                         type={'text'}
@@ -139,8 +136,17 @@ export default function CreateNewSpotForm(){
                         onChange={e=>setImageUrl(e.target.value)}
                     />
                 </div>
+                <div id="create_spot_textarea_container">
+                    <textarea placeholder="Description"
+                        className="text_area_box"
+                        required
+                        type={'text'}
+                        value={description}
+                        onChange={e=>setDesprition(e.target.value)}
+                    />
+                </div>
                 <div>
-                    <button type="submit">Create Spot</button>
+                    <button id="create_form_submit_btn"type="submit">Create Spot</button>
                 </div>
             </form>
         </div>
