@@ -5,7 +5,7 @@
 #spot_details_container {
     display: block;
     margin:auto;
-    width: 70%;
+    width: 80%;
     /* display: flex;
     align-items: center;
     justify-content: center;
@@ -34,10 +34,10 @@
     /* border: 1px solid black; */
 }
 
-#main_image_container {
+.main_image_container {
     width: 50%;
     height: 100%;
-    /* margin: 3px; */
+
 }
 
 #image0 {
@@ -74,7 +74,7 @@
     /* margin-bottom: 2px;
     margin-left: 2px; */
     border-radius: 0px 0px 0px 0px;
-    object-fit: fill;
+    object-fit: cover;
 }
 
 #image2 {
