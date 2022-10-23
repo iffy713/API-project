@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
 import { getSpotDetails, updateSpot } from "../../store/spots"
+import './SpotUpdate.css'
 
 export default function UpdateSpotForm(){
 
@@ -55,9 +56,13 @@ export default function UpdateSpotForm(){
     }
 
     return(
-        <div>
-            <div>Update My Spot</div>
-            <form onSubmit={handleSubmit}>
+        <div id="edit_spot_form_container">
+            <div>
+                <h1 id="title_of_edit_form">Update My Spot</h1>
+            </div>
+            <form onSubmit={handleSubmit}
+                id="edit_spot_form"
+            >
                 <ul className="error_messages">
                     {errors.map(err => (
                         <li key={err}>{err}</li>
@@ -129,6 +134,7 @@ export default function UpdateSpotForm(){
                 </div>
                 <div>
                     <textarea placeholder="Description"
+                        className="text_area_box"
                         required
                         type={'text'}
                         value={description}
@@ -136,7 +142,7 @@ export default function UpdateSpotForm(){
                     />
                 </div>
                 <div>
-                    <button type="submit">Update</button>
+                    <button id="edit_form_submit_btn" type="submit">Update</button>
                 </div>
             </form>
         </div>
