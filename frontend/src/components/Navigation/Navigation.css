@@ -34,10 +34,12 @@ span {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 90%;
+    width: 96%;
 }
 
 .button_container {
+    position: relative;
+    border: none;
     display: flex;
     align-items: center;
 }
@@ -72,13 +74,26 @@ li {
 
 .profile-dropdown {
     color: #716F81;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
     list-style: none;
-    border: #716F81 1px solid;
-
+    border-radius: 12px;
+    position: absolute;
+    left: 75.3%;
+    top: 10%;
+    z-index: 2;
 }
 
 .show_menu_element {
     margin: 20px;
+}
+
+#manage_reviews:hover {
+    font-weight: bold;
+}
+
+#manage_listings:hover {
+    font-weight: bold;
 }
 
 .nav_listing_reviews {

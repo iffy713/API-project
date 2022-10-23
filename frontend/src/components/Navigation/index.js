@@ -17,10 +17,10 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-          {/* <NavLink to="/login" className={'nav_links'}>Log In</NavLink> */}
+        <div>
           <LoginFormModal className={"modal_button"} />
-          {/* <NavLink to="/signup" className={'nav_links'}>Sign Up</NavLink> */}
           <SignupFormModal className={"modal_button"}/>
+        </div>
       </>
     );
   }
