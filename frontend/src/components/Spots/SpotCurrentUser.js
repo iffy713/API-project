@@ -12,7 +12,7 @@ export default function SpotCurrentUser() {
     const allSpotsObj = useSelector(state=>state.spot.allSpots)
     const allSpotsArr = Object.values(allSpotsObj)
 
-    console.log("===========", allSpotsArr)
+    // console.log("===========", allSpotsArr[2].previewImage)
     useEffect(()=>{
         dispatch(getSpotCurrentUser())
     },[dispatch])
@@ -20,6 +20,7 @@ export default function SpotCurrentUser() {
 
 
     if(!allSpotsArr) return null
+
 
     return (
         <div className='my_listing_container'>
@@ -37,16 +38,15 @@ export default function SpotCurrentUser() {
                                 <img key={spot.id} src={spot.previewImage} alt={spot.name} className='spot_img'/>
                             </div>
                             <div>
-                                {spot.name}
                                 <span><i className='fas fa-solid fa-star'/>{spot.avgRating}</span>
                             </div>
                             <div>{spot.city},{spot.state}</div>
                             <div>{spot.price} night</div>
                             <div>
                                 <NavLink to={`/spots/${spot.id}/update`}>
-                                    <button>Update</button>
+                                    <button className='update_delete_btn'>Update</button>
                                  </NavLink>
-                                <button id='delete_btn' onClick={()=>dispatch(deleteSingleSpot(spot.id))}>Delete</button>
+                                <button className='update_delete_btn' onClick={()=>dispatch(deleteSingleSpot(spot.id))}>Delete</button>
                             </div>
                         </div>
                     </div>

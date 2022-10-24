@@ -83,7 +83,7 @@ export const getSpotCurrentUser = () => async (dispatch) =>{
     const res = await csrfFetch(`/api/spots/current`)
     if(res.ok){
         const data = await res.json()
-        // console.log("spot of current user ==========",data)
+        console.log("thunkkkkkk spot of current user ==========",data)
         dispatch(loadSpotsOfCurrentUser(data.Spots))
     }
 }
@@ -100,7 +100,7 @@ export const createNewSpot = data => async (dispatch) => {
     const { imageUrl } = data
     if(res.ok){
         const newSpot = await res.json()
-        // //console.log('newSpot in thunk=========', newSpot)
+        // console.log('newSpot in thunk=========', newSpot)
         dispatch(createSpot(newSpot))
 
         //add Spot Image Url
@@ -178,7 +178,7 @@ const spotReducer = (state=initialState, action) =>{
                 ownerSpots[spot.id]= spot
             })
             return {
-                ...state,
+                // ...state,
                 allSpots: ownerSpots,
                 singleSpot: {}
             }
