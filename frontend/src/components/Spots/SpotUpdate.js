@@ -63,9 +63,9 @@ export default function UpdateSpotForm(){
             <form onSubmit={handleSubmit}
                 id="edit_spot_form"
             >
-                <ul className="error_messages">
+                <ul>
                     {errors.map(err => (
-                        <li key={err}>{err}</li>
+                        <li className="error_messages" key={err}>{err}</li>
                     ))}
                 </ul>
                 <div>

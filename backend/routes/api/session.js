@@ -31,7 +31,8 @@ const validateLogin = [
       if(!user) {
         res.status(401)
         return res.json({
-          "message": "Invalid credentials",
+          // "message": "Invalid credentials",
+          "message": "Please enter the correct username or password.",
           "statusCode": 401
         })
       }

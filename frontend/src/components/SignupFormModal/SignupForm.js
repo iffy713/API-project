@@ -39,8 +39,8 @@ function SignupForm() {
         <div id='signup_title'>
           <h2>Sign Up</h2>
         </div>
-        <ul className="error_messages">
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        <ul >
+          {errors.map((error, idx) => <li className="error_messages" key={idx}>{error}</li>)}
         </ul>
         <div>
             <input

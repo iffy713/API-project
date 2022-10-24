@@ -52,3 +52,7 @@
     color: white;
     border: rgb(229,31,92) solid 1px;
 }
+
+.error_messages {
+    color: #B73E3E
+}

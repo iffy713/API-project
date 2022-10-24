@@ -14,7 +14,7 @@ export default function SpotDetails(){
     const { spotId } = useParams()
     const singleSpot = useSelector(state=>state.spot.singleSpot) //object
 
-    // //console.log("!!!!!!!!!!!!!!!!!!!singleSpot!!!!!",singleSpot)
+    // console.log("!!!!!!!!!!!!!!!!!!!singleSpot!!!!!",singleSpot.avgStarRating)
 
     const reviews = useSelector(state=>state.reviews.spot)
     const reviewsArr = Object.values(reviews)
@@ -84,8 +84,8 @@ export default function SpotDetails(){
                     <div className='owner_name'>
                         <h2>Hosted by {singleSpot.Owner.firstName}</h2>
                         <div>
-                            <i className='fas fa-solid fa-star'/>{singleSpot.avgStarRating}
-                            <span style={{fontWeight:"bold"}}>·</span>{reviewsArr.length} reviews
+                            {/* <i className='fas fa-solid fa-star'/>{singleSpot.avgStarRating} */}
+                            {reviewsArr.length} reviews
                         </div>
                     </div>
                 </div>
