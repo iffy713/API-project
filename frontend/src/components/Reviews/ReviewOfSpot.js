@@ -14,8 +14,8 @@ export default function ReviewOfSpot({spotId}) {
 
     const [loaded, setLoaded] = useState(false)
 
-    // console.log("reviews OBJ================", reviewsObj)
-    // console.log('reviews array=============', reviewsArr)
+    // //console.log("reviews OBJ================", reviewsObj)
+    // //console.log('reviews array=============', reviewsArr)
 
     if(!loaded) return null
 

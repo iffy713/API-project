@@ -41,9 +41,9 @@ export default function CreateNewSpotForm(){
         let createdSpot = await dispatch(createNewSpot(newSpot))
             .catch(async(res)=> {
                 const data = await res.json()
-                console.log("trying to create a new spot", data)
+                //console.log("trying to create a new spot", data)
                 if(data && data.errors) setErrors(data.errors)
-                // console.log(errors)
+                // //console.log(errors)
             })
         if(createdSpot){
             setErrors([])

@@ -15,8 +15,8 @@ export default function CreateReviewForm(){
 
     const singleSpot = useSelector(state=>state.spot.singleSpot) //object
     const currentUser = useSelector(state=> state.session.user)
-    // console.log("singleSpot in create review", singleSpot)
-    // console.log("currentUser in create Review=======", currentUser)
+    // //console.log("singleSpot in create review", singleSpot)
+    // //console.log("currentUser in create Review=======", currentUser)
 
     const onSubmit = e => {
         e.preventDefault()
@@ -32,7 +32,7 @@ export default function CreateReviewForm(){
         return dispatch(createSpotReview(newReview, singleSpot.id,currentUser))//.then(history.push(`/spots/${singleSpot.id}`))
             .catch(async(res)=> {
                 const data = await res.json()
-                console.log("trying to create a review!!!!!!!!!!!",data)
+                //console.log("trying to create a review!!!!!!!!!!!",data)
 
                 if(data && data.message) setErrors(data.message)
             })

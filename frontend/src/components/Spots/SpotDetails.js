@@ -14,7 +14,7 @@ export default function SpotDetails(){
     const { spotId } = useParams()
     const singleSpot = useSelector(state=>state.spot.singleSpot) //object
 
-    // console.log("!!!!!!!!!!!!!!!!!!!singleSpot!!!!!",singleSpot)
+    // //console.log("!!!!!!!!!!!!!!!!!!!singleSpot!!!!!",singleSpot)
 
     const reviews = useSelector(state=>state.reviews.spot)
     const reviewsArr = Object.values(reviews)
@@ -26,8 +26,8 @@ export default function SpotDetails(){
     }
 
     // const userId = useSelector(state=>state.session.user.id)
-    // console.log("!!!!!session", session)
-    // console.log("==========userId",userId)
+    // //console.log("!!!!!session", session)
+    // //console.log("==========userId",userId)
 
     useEffect(()=>{
         dispatch(getSpotDetails(spotId))
@@ -40,7 +40,7 @@ export default function SpotDetails(){
     if (!singleSpot) return null
     if(!singleSpot.SpotImages || !singleSpot.Owner) return null
 
-    // console.log("!!!!!!!!!!", spotId)
+    // //console.log("!!!!!!!!!!", spotId)
 
     return (
         <div id="spot_details_container">

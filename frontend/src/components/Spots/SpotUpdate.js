@@ -45,9 +45,9 @@ export default function UpdateSpotForm(){
         let updatedSpot = await dispatch(updateSpot(spotId,newSpot))
             .catch(async(res)=> {
                 const data = await res.json()
-                console.log("trying to update a spot", data)
+                //console.log("trying to update a spot", data)
                 if(data && data.errors) setErrors(data.errors)
-                console.log(errors)
+                //console.log(errors)
             })
         if(updatedSpot){
             setErrors([])

@@ -12,7 +12,7 @@ export default function SpotCurrentUser() {
     const allSpotsObj = useSelector(state=>state.spot.allSpots)
     const allSpotsArr = Object.values(allSpotsObj)
 
-    // console.log("===========", allSpotsArr)
+    // //console.log("===========", allSpotsArr)
     useEffect(()=>{
         dispatch(getSpotCurrentUser())
     },[dispatch])

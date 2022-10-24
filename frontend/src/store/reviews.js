@@ -37,11 +37,11 @@ const deleteReview = (reviewId) => {
 }
 
 export const getReviewsOfCurrentUser = ()=> async (dispatch)=>{
-    // console.log("thin is in current reviews thunk!!!!!!!!!!!!")
+    // //console.log("thin is in current reviews thunk!!!!!!!!!!!!")
     const res = await csrfFetch('/api/reviews/current')
     if(res.ok){
         const data = await res.json()
-        // console.log("=====response in thunk~~~~~~~~~~~~~~~~", data.Reviews)
+        // //console.log("=====response in thunk~~~~~~~~~~~~~~~~", data.Reviews)
         dispatch(loadReviewsOfUser(data.Reviews))
     }
 }
@@ -66,8 +66,8 @@ export const deleteReviewOfUser = (reviewId)=> async (dispatch)=> {
 }
 
 export const createSpotReview = (data, spotId,owner)=> async (dispatch) =>{
-    // console.log(spotId)
-    // console.log("owner in thunk==============",owner)
+    // //console.log(spotId)
+    // //console.log("owner in thunk==============",owner)
     const res = await csrfFetch(`/api/spots/${spotId}/reviews`,{
         method:'POST',
         headers: {
@@ -77,7 +77,7 @@ export const createSpotReview = (data, spotId,owner)=> async (dispatch) =>{
     })
     if(res.ok){
         const newReview = await res.json()
-        // console.log("============newReview in thunk", newReview)
+        // //console.log("============newReview in thunk", newReview)
         newReview.User = owner
 
         dispatch(createReview(newReview,))
@@ -109,7 +109,7 @@ const reviewReducer = (state=initialState, action)=>{
         // *************
         case CREATE_REVIEW:
             newState = {...state}
-            // console.log("=============new review",action.review)
+            // //console.log("=============new review",action.review)
             newState.spot ={
                 ...state.spot,
                 [action.review.id] : action.review
@@ -118,7 +118,7 @@ const reviewReducer = (state=initialState, action)=>{
 
         case DELETE_REVIEW:
             newState = {spot:{},user: {...state.user}}
-            // console.log("review state in reducer!!!!!!!", newState)
+            // //console.log("review state in reducer!!!!!!!", newState)
             delete newState.user[action.reviewId]
             return newState
         default:

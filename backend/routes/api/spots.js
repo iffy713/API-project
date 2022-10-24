@@ -159,9 +159,9 @@ router.get('/',validateQuery, async(req,res)=>{
                 ]
             ]
         })
-        // console.log(spotReview[0])
+        // //console.log(spotReview[0])
         let avgRating = spotReview[0].dataValues.avgRating
-        // console.log(avgRating)
+        // //console.log(avgRating)
 
 
         spot.dataValues.avgRating = parseFloat(Number(avgRating).toFixed(1)) //passed in local

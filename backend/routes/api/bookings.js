@@ -26,7 +26,7 @@ const validateBooking = [
 
 //====================Get all of the Current User's Bookings========
 router.get('/current', requireAuth, async(req, res)=>{
-    // console.log('===============')
+    // //console.log('===============')
     const bookings = await Booking.findAll({
         where: {
             userId: req.user.id,
@@ -63,7 +63,7 @@ router.get('/current', requireAuth, async(req, res)=>{
 router.put('/:bookingId', requireAuth, validateBooking,async (req, res)=>{
     const { starDate, endDate } = req.body
     const oldBooking = await Booking.findByPk(req.params.bookingId)
-    
+
 
     if(!oldBooking){
         return res.status(404).json({
