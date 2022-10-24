@@ -83,7 +83,7 @@ export const getSpotCurrentUser = () => async (dispatch) =>{
     const res = await csrfFetch(`/api/spots/current`)
     if(res.ok){
         const data = await res.json()
-        // //console.log("spot of current user ==========",data)
+        // console.log("spot of current user ==========",data)
         dispatch(loadSpotsOfCurrentUser(data.Spots))
     }
 }

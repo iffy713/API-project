@@ -39,24 +39,24 @@ module.exports = {
     // spot 2
     {
       spotId: 2,
-      url: "https://cdn.pixabay.com/photo/2020/10/18/09/16/bedroom-5664221_1280.jpg",
+      url: "https://a0.muscache.com/im/pictures/b30b61e5-fad2-4363-931b-b52823a2705b.jpg?im_w=1200",
       preview: true,
     },
     {
       spotId:2,
-      url: "https://a0.muscache.com/im/pictures/cf71fe9a-2184-402d-bc3a-1cfa34718e08.jpg?im_w=1200",
+      url: "https://a0.muscache.com/im/pictures/d4b20c75-241e-4147-ba2e-67552d84918d.jpg?im_w=720",
       preview: false
     },{
       spotId:2,
-      url: "https://a0.muscache.com/im/pictures/77438113/03fd3f15_original.jpg?im_w=720",
+      url: "https://a0.muscache.com/im/pictures/929f3edb-a235-47b1-96f9-6f28cb7ef70a.jpg?im_w=720",
       preview: false
     },{
       spotId:2,
-      url: "https://a0.muscache.com/im/pictures/83694630/6b2018c3_original.jpg?im_w=720",
+      url: "https://a0.muscache.com/im/pictures/d6c6da13-baf1-4708-8669-9f3e57123dce.jpg?im_w=720",
       preview: false
     },{
       spotId:2,
-      url: "https://a0.muscache.com/im/pictures/77438113/03fd3f15_original.jpg?im_w=720",
+      url: "https://a0.muscache.com/im/pictures/da0616ed-bcbc-4626-b794-68dccf531c8a.jpg?im_w=720",
       preview: false
     },
     //spot 3
