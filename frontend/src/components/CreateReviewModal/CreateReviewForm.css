@@ -1,0 +1,47 @@
+#post_review_btn {
+    margin: 10px;
+    border: #f1f1f1 1px solid;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
+}
+
+#post_review_btn:hover {
+    background-color: rgb(229,31,92);
+    color: white;
+    border: rgb(229,31,92) solid 1px;
+}
+
+#review_create_form_container {
+    width: fit-content;
+    padding: 20px;
+
+}
+
+#create_review_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#select_box {
+    width: 40px;
+    height: 30px;
+}
+
+#create_review_submit_btn {
+    margin: 10px;
+    border: #f1f1f1 1px solid;
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
+}
+
+#create_review_submit_btn:hover {
+    background-color: rgb(229,31,92);
+    color: white;
+    border: rgb(229,31,92) solid 1px;
+}

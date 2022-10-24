@@ -39,25 +39,27 @@ export default function CreateReviewForm(){
     }
 
     return (
-        <div>
-            <h2>This is CreateReviewForm component</h2>
-            <form onSubmit={onSubmit}>
+        <div id="review_create_form_container">
+            <form onSubmit={onSubmit} id="create_review_form">
                 <h2>How was your stay?...</h2>
                 <ul className="error_messages">
                     {errors}
                 </ul>
                 <div>
-                    <textarea placeholder="Leave your review here..."
+                    <textarea
+                        className="text_area_box"
+                        placeholder="Leave your review here..."
                         value={review}
                         onChange={e=>setReview(e.target.value)}
                         required
                         ></textarea>
                 </div>
                 <div>
+                    <span style={{fontSize: "15px"}}>Stars</span>
                     <select value={stars}
                         onChange={e=> setStars(e.target.value)}
+                        id="select_box"
                         >
-                        can you see me?
                         <option value={'1'}>1</option>
                         <option value={'2'}>2</option>
                         <option value={'3'}>3</option>
@@ -66,7 +68,7 @@ export default function CreateReviewForm(){
                     </select>
                 </div>
                 <div>
-                    <button type="submit">Submit your review</button>
+                    <button id="create_review_submit_btn" type="submit">Submit your review</button>
                 </div>
             </form>
         </div>

@@ -88,6 +88,7 @@ export default function SpotDetails(){
                             <span style={{fontWeight:"bold"}}>·</span>{reviewsArr.length} reviews
                         </div>
                     </div>
+                </div>
                     <div className='price_pannel'>
                         <div>
                             <span id='room_price'>
@@ -99,7 +100,6 @@ export default function SpotDetails(){
                                 <CreateReviewFormModal />
                             )}
                     </div>
-                </div>
                 <div>
                     <ReviewOfSpot spotId={spotId}/>
                 </div>
