@@ -256,7 +256,11 @@ router.get('/current', requireAuth, async (req, res)=>{
     spot.dataValues.avgRating = parseFloat(Number(avgRating).toFixed(1))
   //-------------------Get average stars----------------------//
 
-    const spotImage = await SpotImage.findByPk(spot.id)
+    const spotImage = await SpotImage.findOne({
+      where: {
+        spotId: spot.id
+      }
+    })
     if(spotImage){
       spot.dataValues.previewImage = spotImage.url
     } else {

@@ -174,6 +174,7 @@ const spotReducer = (state=initialState, action) =>{
         //get all spots of current user
         case LOAD_SPOTS_CURRENT_USER:
             const ownerSpots = {}
+            console.log("reducerrrr=======",action.spots)
             action.spots.forEach(spot=>{
                 ownerSpots[spot.id]= spot
             })
