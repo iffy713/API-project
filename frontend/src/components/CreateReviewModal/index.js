@@ -13,7 +13,7 @@ export default function CreateReviewFormModal(){
             </button>
             {showModal && (
                 <Modal onClose={()=>setShowModal(false)}>
-                    <CreateReviewForm />
+                    <CreateReviewForm setShowModal={setShowModal}/>
                 </Modal>
             )}
         </>
