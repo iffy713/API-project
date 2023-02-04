@@ -1,16 +1,15 @@
 import { useDispatch, useSelector} from "react-redux"
 import React, { useState } from "react"
 import { createSpotReview } from "../../store/reviews"
-// import {  useHistory } from "react-router-dom";
+import StarRating from 'react-star-ratings'
 
-
-export default function CreateReviewForm(){
+export default function CreateReviewForm({setShowModal}){
 
     const dispatch = useDispatch()
     // const history = useHistory()
 
     const [ review, setReview ] = useState('')
-    const [ stars, setStars ] = useState(5)
+    const [ stars, setStars ] = useState(0)
     const [ errors, setErrors ] = useState([])
 
     const singleSpot = useSelector(state=>state.spot.singleSpot) //object
@@ -29,7 +28,7 @@ export default function CreateReviewForm(){
 
 
 
-        return dispatch(createSpotReview(newReview, singleSpot.id,currentUser))//.then(history.push(`/spots/${singleSpot.id}`))
+        return dispatch(createSpotReview(newReview, singleSpot.id,currentUser)).then(setShowModal(false))//.then(history.push(`/spots/${singleSpot.id}`))
             .catch(async(res)=> {
                 const data = await res.json()
                 //console.log("trying to create a review!!!!!!!!!!!",data)
@@ -56,16 +55,17 @@ export default function CreateReviewForm(){
                 </div>
                 <div>
                     <span style={{fontSize: "15px"}}>Stars</span>
-                    <select value={stars}
-                        onChange={e=> setStars(e.target.value)}
-                        id="select_box"
-                        >
-                        <option value={'1'}>1</option>
-                        <option value={'2'}>2</option>
-                        <option value={'3'}>3</option>
-                        <option value={'4'}>4</option>
-                        <option value={'5'}>5</option>
-                    </select>
+                    <StarRating
+                        isSelectable={true}
+                        rating={stars}
+                        changeRating={(rating) => setStars(rating)}
+                        numberOfStars={5}
+                        starHoverColor="rgb(255, 90, 95)"
+                        starRatedColor="rgb(255, 90, 95)"
+                        // starEmptyColor="rgb(227, 227, 227)"
+                        starDimension='18px'
+                        starSpacing='2px'
+                    />
                 </div>
                 <div>
                     <button id="create_review_submit_btn" type="submit">Submit your review</button>
