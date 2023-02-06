@@ -7,7 +7,7 @@ import Spots from "./components/Spots";
 import SpotDetails from "./components/Spots/SpotDetails";
 import SpotCurrentUser from "./components/Spots/SpotCurrentUser";
 import UpdateSpotForm from "./components/Spots/SpotUpdate";
-import UserReviews from "./components/Reviews";
+import UserReviews from "./components/Reviews/UserReviews";
 import CreateNewSpotForm from "./components/Spots/CreateNewSpotForm";
 
 function App() {

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { deleteReviewOfUser, getReviewsOfCurrentUser } from "../../store/reviews"
 import { useHistory } from "react-router-dom";
 import './ReviewOfSpots.css'
+import UserSingleReview from "./UserSingleReview";
 
 
 export default function UserReviews(){
@@ -31,9 +32,11 @@ export default function UserReviews(){
                 <div>
                     {userReviewsArr.map(review=>(
                         <div key={review.id} id="my_single_review">
-                        <p key={review.id}>{review.review}</p>
+                            <UserSingleReview review={review}/>
                         <div id="review_delete_btn_container">
-                            <button id="review_delete_btn" onClick={()=>handleDelete(review.id)}>Delete</button>
+                            <button id="review_delete_btn" onClick={()=>handleDelete(review.id)}>
+                                Delete
+                            </button>
                         </div>
                         </div>
                     ))}
