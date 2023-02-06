@@ -1,0 +1,119 @@
+span {
+    margin: 10px;
+}
+
+#nav_home {
+    text-decoration: none;
+}
+
+#airbvb_logo {
+    display: flex;
+    align-items: center;
+}
+
+#logo_image {
+    width: 40px;
+    height: 40px;
+}
+
+#logo_text {
+    color: rgb(255, 90, 95);
+    font-weight: 800;
+    font-size: 30px;
+    font-family: sans-serif;
+}
+
+.nav_link_bar {
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.nav_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 96%;
+}
+
+.button_container {
+    position: relative;
+    border: none;
+    display: flex;
+    align-items: center;
+}
+
+#user_circle {
+    background-color: transparent;
+    border: #DDDDDD 1px solid;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 5px, 5px, 5px, 12px;
+}
+ #user_circle:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 3px 5px;
+}
+
+.fa-circle-user  {
+    font-size: 25px;
+    display: inline-block;
+    color: rgb(73,89,102);
+}
+.fa-bars {
+    display: inline-block;
+    font-size: 25px;
+    margin: 4px;
+    color: rgb(73,89,102);
+
+}
+
+li {
+    list-style: none;
+}
+
+.profile-dropdown {
+    color: #716F81;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+    list-style: none;
+    border-radius: 12px;
+    position: absolute;
+    left: 1120px;
+    top: 75px;
+    z-index: 2;
+}
+
+.show_menu_element {
+    margin: 20px;
+}
+
+#manage_reviews:hover {
+    font-weight: bold;
+}
+
+#manage_listings:hover {
+    font-weight: bold;
+}
+
+.nav_listing_reviews {
+    text-decoration: none;
+}
+
+#log_out_button {
+    cursor: pointer;
+    background-color: #716F81;
+    color: azure;
+    height: 50px;
+    border-radius: 20px;
+    border: #716F81;
+    align-items: center;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 15px;
+}
+
+#log_out_button:hover {
+    background-color: rgb(229,31,92);
+    color: white;
+}
