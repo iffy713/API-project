@@ -49,10 +49,10 @@ function ProfileButton({ user }) {
           <li className="show_menu_element">{user.email}</li>
           <hr></hr>
           <li id="manage_listings" className="show_menu_element">
-            <NavLink className={'nav_listing_reviews'} exact to={'/spots/current'}>Manage Listings</NavLink>
+            <NavLink className={'nav_listing_reviews'} exact to={'/my-account/hosts'}>Manage Listings</NavLink>
           </li>
           <li id="manage_reviews" className="show_menu_element">
-            <NavLink className={'nav_listing_reviews'} exact to={'/reviews/current'}>Manage Reviews</NavLink>
+            <NavLink className={'nav_listing_reviews'} exact to={'/my-account/reviews'}>Manage Reviews</NavLink>
           </li>
           <li className="show_menu_element">
             <button onClick={logout} id="log_out_button">Log Out</button>

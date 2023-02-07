@@ -7,8 +7,9 @@ import Spots from "./components/Spots";
 import SpotDetails from "./components/Spots/SpotDetails";
 import SpotCurrentUser from "./components/Spots/SpotCurrentUser";
 import UpdateSpotForm from "./components/Spots/SpotUpdate";
-import UserReviews from "./components/Reviews";
+import UserReviews from "./components/Reviews/UserReviews";
 import CreateNewSpotForm from "./components/Spots/CreateNewSpotForm";
+import UserBookings from "./components/Bookings/UserBookings";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,16 +27,21 @@ function App() {
           <UpdateSpotForm/>
         </Route>
 
-        <Route exact path={'/spots/current'}>
-          <SpotCurrentUser />
-        </Route>
 
         <Route exact path={'/spots/:spotId'}>
           <SpotDetails />
         </Route>
 
-        <Route exact path={'/reviews/current'}>
+        <Route exact path={'/my-account/hosts'}>
+          <SpotCurrentUser />
+        </Route>
+
+        <Route exact path={'/my-account/reviews'}>
           <UserReviews />
+        </Route>
+
+        <Route exact path={'/my-account/bookings'}>
+          <UserBookings />
         </Route>
 
         <Route exact path={'/spots/current/new'}>
