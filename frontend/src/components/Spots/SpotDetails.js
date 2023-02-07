@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getReviewsOfSpot } from '../../store/reviews';
 import { getSpotDetails } from '../../store/spots';
+import SpotBookings from '../Bookings/SpotBookings';
 import CreateReviewFormModal from '../CreateReviewModal'
 import ReviewOfSpot from '../Reviews/ReviewOfSpot';
 import './SpotDetails.css'
@@ -32,6 +33,7 @@ export default function SpotDetails(){
     useEffect(()=>{
         dispatch(getSpotDetails(spotId))
         dispatch(getReviewsOfSpot(spotId))
+
     },[dispatch,spotId])
 
     // if(!session) return null
@@ -89,20 +91,26 @@ export default function SpotDetails(){
                         </div>
                     </div>
                 </div>
-                    <div className='price_pannel'>
-                        <div>
-                            <span id='room_price'>
-                                ${singleSpot.price}
-                            </span>
-                            night
-                        </div>
-                            {userId && singleSpot.Owner.id !== userId && (
-                                <CreateReviewFormModal />
-                            )}
+                <div className='price_pannel'>
+                    <div>
+                        <span id='room_price'>
+                            ${singleSpot.price}
+                        </span>
+                        night
                     </div>
+                        {userId && singleSpot.Owner.id !== userId && (
+                            <CreateReviewFormModal />
+                        )}
+                </div>
+
                 <div>
                     <ReviewOfSpot spotId={spotId}/>
                 </div>
+{/* ============================================================================ */}
+                <div>
+                    <SpotBookings spotId={spotId}/>
+                </div>
+{/* ============================================================================ */}
             </div>
         </div>
         // {singleSpot.Owner.id===userId?<div></div>:

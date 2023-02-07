@@ -26,15 +26,16 @@ function App() {
           <UpdateSpotForm/>
         </Route>
 
-        <Route exact path={'/spots/current'}>
-          <SpotCurrentUser />
-        </Route>
 
         <Route exact path={'/spots/:spotId'}>
           <SpotDetails />
         </Route>
 
-        <Route exact path={'/reviews/current'}>
+        <Route exact path={'/my-account/hosts'}>
+          <SpotCurrentUser />
+        </Route>
+        
+        <Route exact path={'/my-account/reviews'}>
           <UserReviews />
         </Route>
 
