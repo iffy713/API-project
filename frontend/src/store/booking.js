@@ -29,9 +29,11 @@ export const thunkGetSpotBookings = (spotId) => async(dispatch) => {
 
 export const thunkGetUserBookings = () => async(dispatch) => {
     const res = await csrfFetch(`/api/bookings/current`)
+    console.log(res)
     if(res.ok){
         const data = await res.json()
-        dispatch(actionGetUserBookings(data.Booking))
+        console.log("data in thunkkkkkkk", data)
+        dispatch(actionGetUserBookings(data.Bookings))
     }
 }
 
