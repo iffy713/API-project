@@ -15,8 +15,6 @@ export default function SpotDetails(){
     const { spotId } = useParams()
     const singleSpot = useSelector(state=>state.spot.singleSpot) //object
 
-    // console.log("!!!!!!!!!!!!!!!!!!!singleSpot!!!!!",singleSpot.avgStarRating)
-
     const reviews = useSelector(state=>state.reviews.spot)
     const reviewsArr = Object.values(reviews)
 
@@ -26,9 +24,6 @@ export default function SpotDetails(){
         userId = user.id
     }
 
-    // const userId = useSelector(state=>state.session.user.id)
-    // //console.log("!!!!!session", session)
-    // //console.log("==========userId",userId)
 
     useEffect(()=>{
         dispatch(getSpotDetails(spotId))
@@ -36,25 +31,19 @@ export default function SpotDetails(){
 
     },[dispatch,spotId])
 
-    // if(!session) return null
 
-    // let images = []
     if (!singleSpot) return null
     if(!singleSpot.SpotImages || !singleSpot.Owner) return null
 
-    // //console.log("!!!!!!!!!!", spotId)
 
     return (
         <div id="spot_details_container">
-            {/* <h1>====SPOT DETAIL COMPONENT{spotId}====</h1> */}
             <div className='spot_header'>
                 <div className='spot_name'>
                     <h2>{singleSpot.name}</h2>
                 </div>
                 <div className='spot_sub_header'>
-                    {/* <span><i className='fas fa-solid fa-star'/> {singleSpot.avgStarRating} </span> */}
                     {singleSpot.city}, {singleSpot.state}, {singleSpot.country}
-                    {/* <span>{reviewsArr.length} reviews</span> */}
                 </div>
             </div>
             <div className='spot_and_reviews'>

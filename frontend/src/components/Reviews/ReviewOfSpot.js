@@ -7,6 +7,7 @@ export default function ReviewOfSpot({spotId}) {
     const dispatch = useDispatch()
     const reviewsObj = useSelector(state=>state.reviews.spot)
     const reviewsArr = Object.values(reviewsObj)
+    
     const formatDate = function(timeStamp){
         const date = new Date(timeStamp)
         const options = { month: "short" }
