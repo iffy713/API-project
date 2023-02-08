@@ -510,7 +510,7 @@ router.get('/:spotId/bookings', requireAuth, async(req, res)=>{
         spotId: req.params.spotId
       },
       attributes: {
-        exclude: ['createdAt', 'updatedAt','id','userId']
+        exclude: ['createdAt', 'updatedAt','userId']
       }
     })
     return res.status(200).json({Booking: bookingsForUser})
