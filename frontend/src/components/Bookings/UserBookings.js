@@ -14,12 +14,12 @@ export default function UserBookings(){
     }, [dispatch])
 
     userBookingsArr = Object.values(userBookingsObj)
-    
+
     return (
         <div>
-            User Bookings Component
+            Trips
             {userBookingsArr.map(booking=>(
-                <UserSingleBooking booking={booking}/>
+                <UserSingleBooking booking={booking} key={booking.id}/>
             ))}
         </div>
     )
