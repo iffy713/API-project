@@ -12,6 +12,30 @@
     flex-direction: column; */
 }
 
+#spot_sub_header {
+    display: flex;
+    flex-direction: row;
+}
+#spot_sub_header span {
+    margin: 2px;
+}
+
+#sub_header_child1 {
+    font-weight: 700;
+    margin-left: 0;
+}
+/* #sub_header_child1 span{
+    margin: 4px;
+} */
+
+.sub_header_dot {
+    margin: 2px;
+}
+
+#sub_header_address {
+    text-decoration: underline;
+}
+
 .spot_header {
     display: flex;
     justify-content: flex-start;
@@ -102,31 +126,56 @@
     border-radius: 0px 0px 12px 0px;
 }
 
-.owner_review {
+#spot_detail_center {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-/* .owner_name {
+.detail_page_icons_column{
+    height: 30px;
+}
 
-} */
+.detail_page_icon_ctn i{
+    font-size: 30px;
+    margin-top: 20px;
+}
+.detail_page_icon_ctn {
 
-.price_pannel {
+}
+.spot_detail_center_left {
+    width: 58%;
+}
+
+.spot_detail_center_left {
+
+}
+
+
+.price_pannel_outer {
     border: 1px solid rgb(221, 221, 221);
     box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+    border-radius: 12px;
+    padding: 24px;
+    margin-left:50px;
+
+}
+
+
+
+
+.price_pannel_ctn {
     /* display: inline-flex; */
     margin-top: 20px;
-    width: 200px;
-    height: 100px;
+    width: 20%;
+    height: 300px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    position: absolute;
-    top: 630px;
-    left: 500px;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* position: absolute; */
+    /* top: 630px;
+    left: 500px; */
 }
 
 .price_pannel div {

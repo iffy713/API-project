@@ -6,6 +6,7 @@ import { getSpotDetails } from '../../store/spots';
 import SpotBookings from '../Bookings/SpotBookings';
 import CreateReviewFormModal from '../CreateReviewModal'
 import ReviewOfSpot from '../Reviews/ReviewOfSpot';
+import BookingPannel from '../Bookings/BookingPannel';
 import './SpotDetails.css'
 
 // path: '/spots/:spotId'
@@ -40,10 +41,20 @@ export default function SpotDetails(){
         <div id="spot_details_container">
             <div className='spot_header'>
                 <div className='spot_name'>
-                    <h2>{singleSpot.name}</h2>
+                    <h1>{singleSpot.name}</h1>
                 </div>
-                <div className='spot_sub_header'>
-                    {singleSpot.city}, {singleSpot.state}, {singleSpot.country}
+                <div id='spot_sub_header'>
+                    <span id='sub_header_child1'>
+                        <span><i className="fa-solid fa-star"></i></span>
+                        <span>{singleSpot.avgStarRating.toFixed(1)} ·</span>
+                        <span>{singleSpot.numReviews} reviews</span>
+                    </span>
+                    <span className='sub_header_dot'>·</span>
+                    <span><i class="fa-solid fa-award"></i> Superhost</span>
+                    <span className='sub_header_dot'>·</span>
+                    <span id='sub_header_address'>
+                        {singleSpot.city}, {singleSpot.state}, {singleSpot.country}
+                    </span>
                 </div>
             </div>
             <div className='spot_and_reviews'>
@@ -67,33 +78,50 @@ export default function SpotDetails(){
                             </div>
                         </div>
                     )}
-                    {/* {singleSpot.SpotImages.map(image => (
-                        <img id={'first_image'} key={image.id} src={image.url} alt={singleSpot.name}/>
-                    ))} */}
                 </div>
-                <div className='owner_review'>
-                    <div className='owner_name'>
-                        <h2>Hosted by {singleSpot.Owner.firstName}</h2>
+                <div>
+
+                </div>
+                <div id='spot_detail_center'>
+                    <div className='spot_detail_center_left'>
+                        <div style={{'borderBottom': "1px solid gray"}}>
+                            <h2>Hosted by {singleSpot.Owner.firstName}</h2>
+                        </div>
                         <div>
-                            {/* <i className='fas fa-solid fa-star'/>{singleSpot.avgStarRating} */}
-                            {reviewsArr.length} reviews
+                            <div className='detail_page_icons_column'>
+                                <span className='detail_page_icon_ctn'><i class="fa-solid fa-door-open"></i></span>
+                                <span>Self check-in</span>
+                            </div>
+                            <div className='detail_page_icons_column'>
+                                <span className='detail_page_icon_ctn'><i class="fa-solid fa-award"></i></span>
+                                <span>{singleSpot.Owner.firstName} is a Superhost</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className='price_pannel'>
-                    <div>
-                        <span id='room_price'>
-                            ${singleSpot.price}
-                        </span>
-                        night
+                    <div className='spot_detail_center_right'>
+                        <div className='price_pannel_outer'>
+                            <div className='price_pannel_ctn'>
+
+                                <div>
+                                    <span id='room_price'>
+                                        ${singleSpot.price}
+                                    </span>
+                                    night
+                                </div>
+                                <div>
+                                    <SpotBookings spotId={spotId}/>
+                                </div>
+                                    {userId && singleSpot.Owner.id !== userId && (
+                                        <CreateReviewFormModal />
+                                    )}
+                            </div>
+                        </div>
                     </div>
-                        {userId && singleSpot.Owner.id !== userId && (
-                            <CreateReviewFormModal />
-                        )}
+
                 </div>
 
                 <div>
-                    <ReviewOfSpot spotId={spotId}/>
+                    {/* <ReviewOfSpot spotId={spotId}/> */}
                 </div>
 {/* ============================================================================ */}
                 <div>
