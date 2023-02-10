@@ -25,14 +25,14 @@ export default function SpotBookings({spotId}){
 
     return(
         <div>
-            {!startDate && !endDate?(
+            {/* {!startDate && !endDate?(
                 <div>
                     Select Check-in Date
                 </div>):(
                 <div>
                     Select Checkout Date
                 </div>
-            )}
+            )} */}
             {/* {startDate && endDate && (
                 <div>
                     {startDate} - {endDate}
