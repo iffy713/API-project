@@ -1,6 +1,6 @@
 /* TODO Add site wide styles */
-* body {
-    font-family: inherit;
+ * body {
+    font-family:'Courier New', Courier, monospace;
     color: rgb(34, 34, 34);
     max-width: 2120px;
 }

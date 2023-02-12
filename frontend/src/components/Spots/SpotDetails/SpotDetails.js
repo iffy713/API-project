@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
+import { DayPickerRangeController } from 'react-dates';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getReviewsOfSpot } from '../../store/reviews';
-import { getSpotDetails } from '../../store/spots';
-import SpotBookings from '../Bookings/SpotBookings';
-import CreateReviewFormModal from '../CreateReviewModal'
-import ReviewOfSpot from '../Reviews/ReviewOfSpot';
-import BookingPannel from '../Bookings/BookingPannel';
+import { getReviewsOfSpot } from '../../../store/reviews';
+import { getSpotDetails } from '../../../store/spots';
+import SpotBookings from '../../Bookings/SpotBookings';
+import CreateReviewFormModal from '../../CreateReviewModal'
+import ReviewOfSpot from '../../Reviews/ReviewOfSpot';
 import './SpotDetails.css'
+import TopContainer from './TopContainer/TopContainer';
 
 // path: '/spots/:spotId'
 export default function SpotDetails(){
@@ -39,7 +40,8 @@ export default function SpotDetails(){
 
     return (
         <div id="spot_details_container">
-            <div className='spot_header'>
+            <TopContainer singleSpot={singleSpot}/>
+            {/* <div className='spot_header'>
                 <div className='spot_name'>
                     <h1>{singleSpot.name}</h1>
                 </div>
@@ -56,9 +58,9 @@ export default function SpotDetails(){
                         {singleSpot.city}, {singleSpot.state}, {singleSpot.country}
                     </span>
                 </div>
-            </div>
+            </div> */}
             <div className='spot_and_reviews'>
-                <div id="spot_images_container">
+                {/* <div id="spot_images_container">
                     <div className='main_image_container'>
                         <img id='image0' src={singleSpot.SpotImages[0].url} alt={singleSpot.name} />
                     </div>
@@ -78,16 +80,13 @@ export default function SpotDetails(){
                             </div>
                         </div>
                     )}
-                </div>
-                <div>
-
-                </div>
+                </div> */}
                 <div id='spot_detail_center'>
                     <div className='spot_detail_center_left'>
                         <div style={{'borderBottom': "1px solid gray"}}>
                             <h2>Hosted by {singleSpot.Owner.firstName}</h2>
                         </div>
-                        <div>
+                        {/* <div>
                             <div className='detail_page_icons_column'>
                                 <span className='detail_page_icon_ctn'><i class="fa-solid fa-door-open"></i></span>
                                 <span>Self check-in</span>
@@ -96,6 +95,9 @@ export default function SpotDetails(){
                                 <span className='detail_page_icon_ctn'><i class="fa-solid fa-award"></i></span>
                                 <span>{singleSpot.Owner.firstName} is a Superhost</span>
                             </div>
+                        </div> */}
+                        <div>
+                            <DayPickerRangeController />
                         </div>
                     </div>
                     <div className='spot_detail_center_right'>
@@ -125,7 +127,7 @@ export default function SpotDetails(){
                 </div>
 {/* ============================================================================ */}
                 <div>
-                    <SpotBookings spotId={spotId}/>
+                    {/* <SpotBookings spotId={spotId}/> */}
                 </div>
 {/* ============================================================================ */}
             </div>

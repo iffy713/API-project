@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { thunkGetSpotBookings } from "../../store/booking";
+import moment from "moment";
 import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates'
 import 'react-dates/lib/css/_datepicker.css';
-import BookingPannel from "./BookingPannel";
+import { thunkCreateBooking } from "../../store/booking";
+import './SpotBooking.css'
+
 
 export default function SpotBookings({spotId}){
     const dispatch = useDispatch()
@@ -20,45 +23,37 @@ export default function SpotBookings({spotId}){
         dispatch(thunkGetSpotBookings(spotId))
     }, [dispatch])
 
-    // console.log("!!!!!!!!!",startDate)
-    // console.log("!!!!!!!!!",endDate)
 
+
+    let startDateString = ''
+    let endDateString = ''
+    if(startDate){
+        startDateString = moment(startDate).format("YYYY-MM-DD")
+    }
+    if(endDate){
+        endDateString = moment(endDate).format("YYYY-MM-DD")
+    }
+
+    const handleReserve = () => {
+        const booking = {
+            "startDate": startDateString,
+            "endDate": endDateString
+        }
+        dispatch(thunkCreateBooking(spotId, booking))
+    }
     return(
-        <div>
-            {/* {!startDate && !endDate?(
-                <div>
-                    Select Check-in Date
-                </div>):(
-                <div>
-                    Select Checkout Date
-                </div>
-            )} */}
-            {/* {startDate && endDate && (
-                <div>
-                    {startDate} - {endDate}
-                </div>
-            )} */}
-            <BookingPannel
-                spotId={spotId}
+        <>
+            <DateRangePicker
                 startDate={startDate}
                 endDate={endDate}
+                onDatesChange={({startDate, endDate})=> {
+                    setStartDate(startDate)
+                    setEndDate(endDate)
+                }}
+                onFocusChange={focusedInput => setFocusedInput(focusedInput)}
                 focusedInput={focusedInput}
-                setStartDate={setStartDate}
-                setEndDate={setEndDate}
-                setFocusedInput={setFocusedInput}
             />
-                {/* <DayPickerRangeController
-                    numberOfMonths={2}
-                    minimumNights={1}
-                    startDate={startDate}
-                    endDate={endDate}
-                    onDatesChange={({startDate, endDate})=> {
-                        setStartDate(startDate)
-                        setEndDate(endDate)
-                    }}
-                    onFocusChange={focusedInput => setFocusedInput(focusedInput)}
-                    focusedInput={focusedInput}
-                /> */}
-        </div>
+            <button onClick={handleReserve}>Reserve</button>
+        </>
     )
 }
