@@ -5,7 +5,7 @@
 #spot_details_container {
     display: block;
     margin:auto;
-    width: 80%;
+    max-width: 1120px;
 }
 
 #spot_sub_header {
@@ -122,11 +122,11 @@
     border-radius: 0px 0px 12px 0px;
 }
 
-#spot_detail_center {
+/* #spot_detail_center {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
+} */
 
 .detail_page_icons_column{
     height: 30px;
@@ -136,16 +136,7 @@
     font-size: 30px;
     margin-top: 20px;
 }
-.detail_page_icon_ctn {
 
-}
-.spot_detail_center_left {
-    width: 58%;
-}
-
-.spot_detail_center_left {
-
-}
 
 
 .price_pannel_outer {
@@ -162,11 +153,10 @@
 
 .price_pannel_ctn {
     /* display: inline-flex; */
-    margin-top: 20px;
-    width: 20%;
+    /* margin-top: 20px;
     height: 300px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; */
     /* align-items: center; */
     /* justify-content: center; */
     /* position: absolute; */
