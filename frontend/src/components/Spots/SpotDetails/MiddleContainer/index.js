@@ -1,8 +1,13 @@
+import { useState } from "react";
 import { DayPickerRangeController } from "react-dates";
 import CreateReviewFormModal from "../../../CreateReviewModal";
 import './index.css'
 
 export default function MiddleContainer({singleSpot,userId}){
+
+    const [ startDate, setStartDate ] = useState(null)
+    const [ endDate, setEndDate ] = useState(null)
+    const [ focusedInput, setFocusedInput ] = useState(null)
 
     return (
         <>
@@ -12,7 +17,18 @@ export default function MiddleContainer({singleSpot,userId}){
                         <h2>Hosted by {singleSpot.Owner.firstName}</h2>
                     </div>
                     <div>
-                        <DayPickerRangeController />
+                        <DayPickerRangeController
+                            numberOfMonths={2}
+                            startDate={startDate}
+                            endDate={endDate}
+                            onDatesChange={({startDate, endDate})=>{
+                                setStartDate(startDate)
+                                setEndDate(endDate)
+                            }}
+                            onFocusChange={focusedInput => setFocusedInput(focusedInput)}
+                            focusedInput={focusedInput}
+                            
+                        />
                     </div>
                 </div>
                 <div id='middle-ctn-right'>
@@ -34,13 +50,13 @@ export default function MiddleContainer({singleSpot,userId}){
                                     <div className="date-select-children">
                                         <div className="date-select-header">CHECK-IN</div>
                                         <div className="date-select-input">
-
+                                            {startDate}
                                         </div>
                                     </div>
                                     <div className="date-select-children">
                                         <div className="date-select-header">CHECKOUT</div>
                                         <div className="date-select-input">
-
+                                            {endDate}
                                         </div>
 
                                     </div>

@@ -1,11 +1,12 @@
+import './TopContainer.css'
 
 export default function TopContainer({singleSpot}){
 
     return (
         <>
-            <div className='spot_header'>
-                <div className='spot_name'>
-                    <h1>{singleSpot.name}</h1>
+            <section className='spot-detail-header'>
+                <div className='spot-detail-name-ctn'>
+                    <h1 id="spot-detail-name">{singleSpot.name}</h1>
                 </div>
                 <div id='spot_sub_header'>
                     <span id='sub_header_child1'>
@@ -14,13 +15,13 @@ export default function TopContainer({singleSpot}){
                         <span>{singleSpot.numReviews} reviews</span>
                     </span>
                     <span className='sub_header_dot'>·</span>
-                    <span><i class="fa-solid fa-award"></i> Superhost</span>
+                    <span><i className="fa-solid fa-award"></i> Superhost</span>
                     <span className='sub_header_dot'>·</span>
                     <span id='sub_header_address'>
                         {singleSpot.city}, {singleSpot.state}, {singleSpot.country}
                     </span>
                 </div>
-            </div>
+            </section>
             <div id="spot_images_container">
                     <div className='main_image_container'>
                         <img id='image0' src={singleSpot.SpotImages[0].url} alt={singleSpot.name} />

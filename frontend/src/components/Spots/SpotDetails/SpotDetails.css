@@ -8,125 +8,13 @@
     max-width: 1120px;
 }
 
-#spot_sub_header {
-    display: flex;
-    flex-direction: row;
-}
-#spot_sub_header span {
-    margin: 2px;
-}
 
-#sub_header_child1 {
-    font-weight: 700;
-    margin-left: 0;
-}
-/* #sub_header_child1 span{
-    margin: 4px;
-} */
-
-.sub_header_dot {
-    margin: 2px;
-}
-
-#sub_header_address {
-    text-decoration: underline;
-}
-
-.spot_header {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-}
 
 .spot_and_reviews {
     width: 100%;
     margin: auto;
     margin-top: 25px;
 }
-
-#spot_images_container {
-    width: 100%;
-    height: 412px;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between
-    /* border: 1px solid black; */
-}
-
-.main_image_container {
-    width: 50%;
-    height: 100%;
-
-}
-
-#image0 {
-    height: 100%;
-    width: 100%;
-    border-radius: 12px 0px 0px 12px;
-    object-fit: cover;
-}
-
-.side_images_container {
-    width: 49.5%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.other_images_container {
-    width: 49%;
-    height: 49.5%;
-    /* box-sizing: border-box; */
-    /* margin: 5px;
-    display: flex;
-    flex-direction: column; */
-}
-
-
-#image1 {
-    height: 100%;
-    width: 100%;
-    /* padding-left: 2px; */
-    /* margin-left: 3px; */
-    /* margin-bottom: 2px;
-    margin-left: 2px; */
-    border-radius: 0px 0px 0px 0px;
-    object-fit: cover;
-}
-
-#image2 {
-    /* margin-left: 3px; */
-    /* margin-top: 1px; */
-    height: 100%;
-    width: 100%;
-    border-radius: 0px 0px 0px 0px;
-    /* padding-top: 2px;
-    padding-left: 2px; */
-    object-fit: fill;
-
-}
-#image3 {
-    height: 100%;
-    width: 100%;
-    /* margin-left: 5px; */
-    border-radius: 0px 12px 0px 0px;
-}
-#image4 {
-    height: 100%;
-    /* margin-top: 1px; */
-    width: 100%;
-    /* margin-left: 5px; */
-    border-radius: 0px 0px 12px 0px;
-}
-
-/* #spot_detail_center {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-} */
 
 .detail_page_icons_column{
     height: 30px;
@@ -148,21 +36,6 @@
 
 }
 
-
-
-
-.price_pannel_ctn {
-    /* display: inline-flex; */
-    /* margin-top: 20px;
-    height: 300px;
-    display: flex;
-    flex-direction: column; */
-    /* align-items: center; */
-    /* justify-content: center; */
-    /* position: absolute; */
-    /* top: 630px;
-    left: 500px; */
-}
 
 .price_pannel div {
     padding: 5px;
