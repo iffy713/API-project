@@ -108,9 +108,9 @@ export default function MiddleContainer({singleSpot,userId, spotId}){
                                     </div>
                                 </div>
                             </div>
-                                {/* {userId && singleSpot.Owner.id !== userId && (
+                                {userId && singleSpot.Owner.id !== userId && (
                                     <CreateReviewFormModal />
-                                )} */}
+                                )}
                         </div>
                     </div>
                 </div>

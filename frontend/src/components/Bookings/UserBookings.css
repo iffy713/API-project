@@ -1,0 +1,16 @@
+#my-trips-ctn-outer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    /* border: 3px solid black; */
+    margin: auto;
+}
+
+#my-bookings-outer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
