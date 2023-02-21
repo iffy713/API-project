@@ -6,7 +6,7 @@ import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates'
 import 'react-dates/lib/css/_datepicker.css';
 import { thunkCreateBooking } from "../../store/booking";
-import './SpotBooking.css'
+
 
 
 export default function SpotBookings({spotId}){
@@ -43,7 +43,9 @@ export default function SpotBookings({spotId}){
     }
     return(
         <>
-            <DateRangePicker
+            <DayPickerRangeController
+                numberOfMonths={2}
+                minimumNights={1}
                 startDate={startDate}
                 endDate={endDate}
                 onDatesChange={({startDate, endDate})=> {

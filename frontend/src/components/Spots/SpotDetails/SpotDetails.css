@@ -1,14 +1,12 @@
-* {
+/* * {
     color: rgb(34, 34,34);
-}
+} */
 
 #spot_details_container {
     display: block;
     margin:auto;
     max-width: 1120px;
 }
-
-
 
 .spot_and_reviews {
     width: 100%;
@@ -23,25 +21,4 @@
 .detail_page_icon_ctn i{
     font-size: 30px;
     margin-top: 20px;
-}
-
-
-
-.price_pannel_outer {
-    border: 1px solid rgb(221, 221, 221);
-    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
-    border-radius: 12px;
-    padding: 24px;
-    margin-left:50px;
-
-}
-
-
-.price_pannel div {
-    padding: 5px;
-}
-
-#room_price {
-    font-weight: bold;
-    font-size: large;
 }

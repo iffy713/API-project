@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     border: red solid 3px;
+    padding-top: 24px;
 }
 
 #middle-ctn-left {
@@ -30,20 +31,47 @@
 }
 
 #price-pannel-ctn {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
+}
+
+#price-pannel-top {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+}
+
+#price-pannel-top span {
+    margin: 0;
+}
+
+#room_price {
+    font-weight: 800;
+    font-size: large;
+}
+
+#price-pannel-bottom {
+    margin-bottom: 16px;
+}
+
+#date-select-btn-ctn {
+    border: 1px solid rgb(176, 176, 176);
+    border-radius: 8px;
 }
 
 #date-select-btn {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
     position: relative;
+    display: flex;
+    width: 100%;
     margin: 0px;
     border: none transparent;
-    background-color: transparent;
     color: black;
+    background-color: transparent;
     border-radius: 0px;
+    box-shadow: none;
     cursor: pointer;
+    /* flex-direction: row; */
     padding: 0px;
     text-align: left;
 }
@@ -55,7 +83,7 @@
     overflow: hidden;
 }
 
-/* .date-select-header {
+.date-select-header {
     position: absolute;
     top: 12px;
     left: 12px;
@@ -72,11 +100,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-} */
+}
 
 .date-select-input {
-    min-height: 56px;
-    width: 100%;
+    min-height: 28px;
+    /* width: 100%; */
     border: none;
     outline: none;
     margin: 0px;

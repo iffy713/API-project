@@ -43,7 +43,7 @@ export default function SpotDetails(){
     return (
         <div id="spot_details_container">
             <TopContainer singleSpot={singleSpot}/>
-            <MiddleContainer singleSpot={singleSpot} userId={userId}/>
+            <MiddleContainer singleSpot={singleSpot} userId={userId} spotId={spotId}/>
             <BottomContainer spotId={spotId}/>
         </div>
     )
