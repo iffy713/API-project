@@ -1,0 +1,122 @@
+#middle-ctn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: red solid 3px;
+    padding-top: 24px;
+}
+
+#middle-ctn-left {
+    width: 58.33%;
+
+}
+
+#middle-ctn-right {
+    width: 33.33%;
+    margin-right: 0%;
+    position: relative;
+    margin-left: 8.33%;
+}
+
+#price-pannel-outer {
+    border: 1px solid rgb(221, 221, 221);
+    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+    border-radius: 12px;
+    padding: 24px;
+    position: sticky;
+    width: 100%;
+    /* padding-right: 1px; */
+    margin-top: 48px;
+    box-sizing: border-box;
+}
+
+#price-pannel-ctn {
+    /* border: 1px solid blue; */
+}
+
+#price-pannel-top {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+}
+
+#price-pannel-top span {
+    margin: 0;
+}
+
+#room_price {
+    font-weight: 800;
+    font-size: large;
+}
+
+#price-pannel-bottom {
+    margin-bottom: 16px;
+}
+
+#date-select-btn-ctn {
+    border: 1px solid rgb(176, 176, 176);
+    border-radius: 8px;
+}
+
+#date-select-btn {
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin: 0px;
+    border: none transparent;
+    color: black;
+    background-color: transparent;
+    border-radius: 0px;
+    box-shadow: none;
+    cursor: pointer;
+    /* flex-direction: row; */
+    padding: 0px;
+    text-align: left;
+}
+
+.date-select-children {
+    position: relative;
+    flex: 1 1 0%;
+    padding: 0px;
+    overflow: hidden;
+}
+
+.date-select-header {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    margin: 0px;
+    padding: 0px;
+    pointer-events: none;
+    font-size: 10px;
+    line-height: 12px;
+    color: rgb(34, 34, 34);
+    text-transform: uppercase;
+    font-weight: 800;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.date-select-input {
+    min-height: 28px;
+    /* width: 100%; */
+    border: none;
+    outline: none;
+    margin: 0px;
+    padding: 26px 12px 10px;
+    background-color: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: inherit;
+    line-height: 18px;
+    appearance: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
