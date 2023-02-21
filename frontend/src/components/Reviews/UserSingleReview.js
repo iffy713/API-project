@@ -19,16 +19,21 @@ export default function UserSingleReview({review}){
     return (
         <div id="user-single-reviews-ctn">
             {/* This is single review Component */}
-            <div>
+            <div id="single-review-left">
                 <div>
                     <img src={singleSpot.previewImage} style={{"width":"200px", "height":"180px"}}/>
                 </div>
                 <div>
-                    <h6>{singleSpot.name}</h6>
+                    <h4>{singleSpot.name}</h4>
                     {/* <p>{singleSpot.address}, {singleSpot.city}</p> */}
                 </div>
+                <div>
+                    <h5>
+                        Created on {formattedDate}
+                    </h5>
+                </div>
             </div>
-            <div>
+            <div id='single-review-right'>
                 <StarRating
                     rating={review.stars}
                     starRatedColor="rgb(57, 57,57)"
@@ -36,8 +41,9 @@ export default function UserSingleReview({review}){
                     starSpacing='2px'
                 />
                 <div>
-                    Created on {formattedDate}
+                    {review.review}
                 </div>
+
             </div>
         </div>
     )

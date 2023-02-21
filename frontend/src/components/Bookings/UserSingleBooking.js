@@ -1,4 +1,4 @@
-import Spinner from "../Spinner/Spinner"
+import './UserSingleBooking.css'
 
 export default function UserSingleBooking({booking}){
 
@@ -16,8 +16,7 @@ export default function UserSingleBooking({booking}){
     }
 
     return (
-        <div>
-            Single booking component
+        <div id="user-single-booking-ctn">
             <div>
                 <img src={spotInfo.previewImage} alt={spotInfo.name} style={{"width":"200px", "height":"200px"}}/>
             </div>

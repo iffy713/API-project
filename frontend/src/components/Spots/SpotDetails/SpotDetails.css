@@ -1,0 +1,24 @@
+/* * {
+    color: rgb(34, 34,34);
+} */
+
+#spot_details_container {
+    display: block;
+    margin:auto;
+    max-width: 1120px;
+}
+
+.spot_and_reviews {
+    width: 100%;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.detail_page_icons_column{
+    height: 30px;
+}
+
+.detail_page_icon_ctn i{
+    font-size: 30px;
+    margin-top: 20px;
+}
