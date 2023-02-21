@@ -104,7 +104,7 @@ export default function MiddleContainer({singleSpot,userId, spotId}){
                                 </div>
                                 <div style={{'flexShrink':'0'}}>
                                     <div >
-                                        <button onClick={handleReserve}>Reserve</button>
+                                        <button onClick={handleReserve} id='booking-reserve-btn'>Reserve</button>
                                     </div>
                                 </div>
                             </div>
