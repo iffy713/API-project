@@ -55,6 +55,9 @@ function ProfileButton({ user }) {
             <NavLink className={'nav_listing_reviews'} exact to={'/my-account/reviews'}>Manage Reviews</NavLink>
           </li>
           <li className="show_menu_element">
+            <NavLink exact to={'/my-account/bookings'}>Manage Bookings</NavLink>
+          </li>
+          <li className="show_menu_element">
             <button onClick={logout} id="log_out_button">Log Out</button>
           </li>
         </ul>

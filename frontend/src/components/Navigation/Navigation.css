@@ -83,6 +83,7 @@ li {
     left: 1120px;
     top: 75px;
     z-index: 2;
+    padding: 0;
 }
 
 .show_menu_element {
