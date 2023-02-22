@@ -1,4 +1,5 @@
 import SpotCard from "./SpotCard"
+import './index.css'
 
 
 
