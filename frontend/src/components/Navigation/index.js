@@ -27,7 +27,7 @@ function Navigation({ isLoaded }){
 
   return (
     <div className='nav_link_bar'>
-      <ul>
+      <ul style={{'padding':'0', 'width':'100%'}}>
         <li className="nav_header">
             <NavLink exact to="/" id='nav_home'>
               <div id='airbvb_logo'>
