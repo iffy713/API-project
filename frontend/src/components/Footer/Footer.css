@@ -1,0 +1,47 @@
+#footer-ctn-outer {
+    width: 100%;
+    background-color: rgb(249, 249, 249);
+    border-top: 1px solid rgb(221, 221, 221);
+    box-shadow: rgb(0 0 0 / 3%) 0px 6px 16px;
+    padding: 20px;
+}
+
+#footer-ctn {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact-icon-ctn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+#portfolio-link-ctn {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#portfolio-link-ctn a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#portfolio-link-ctn a:hover {
+    color: gray;
+}
+
+#contact-icon-ctn i {
+    margin: 0 10px;
+    font-size: 30px;
+    color: rgb(57, 57, 57);
+    transition: color 0.5s;
+}
+
+#contact-icon-ctn i:hover {
+    color: gray;
+}
