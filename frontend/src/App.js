@@ -10,6 +10,7 @@ import UpdateSpotForm from "./components/Spots/SpotUpdate";
 import UserReviews from "./components/Reviews/UserReviews";
 import CreateNewSpotForm from "./components/Spots/CreateNewSpotForm";
 import UserBookings from "./components/Bookings/UserBookings";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,6 +55,7 @@ function App() {
         </Route>
 
       </Switch>
+      <Footer />
     </>
   );
 }
