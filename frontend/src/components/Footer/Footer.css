@@ -29,6 +29,7 @@
 #portfolio-link-ctn a {
     text-decoration: none;
     color: inherit;
+    transition: color 0.5s;
 }
 
 #portfolio-link-ctn a:hover {
