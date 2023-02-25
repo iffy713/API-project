@@ -1,0 +1,17 @@
+.DateRangePicker {
+    border: 0;
+}
+
+.DateInput_input {
+    border-bottom: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.DateRangePickerInput_arrow {
+    display: none;
+}
+
+.DayPicker_transitionContainer {
+    z-index: 999;
+}

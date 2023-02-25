@@ -4,8 +4,9 @@ import { thunkGetSpotBookings } from "../../store/booking";
 import moment from "moment";
 import 'react-dates/initialize';
 import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates'
-import 'react-dates/lib/css/_datepicker.css';
 import { thunkCreateBooking } from "../../store/booking";
+import 'react-dates/lib/css/_datepicker.css';
+import './SpotBookings.css'
 
 
 
@@ -19,9 +20,9 @@ export default function SpotBookings({spotId}){
 
     // console.log(spotBookingsObj)
 
-    useEffect(()=>{
-        dispatch(thunkGetSpotBookings(spotId))
-    }, [dispatch])
+    // useEffect(()=>{
+    //     dispatch(thunkGetSpotBookings(spotId))
+    // }, [dispatch])
 
 
 
@@ -43,7 +44,7 @@ export default function SpotBookings({spotId}){
     }
     return(
         <>
-            <DayPickerRangeController
+            <DateRangePicker
                 numberOfMonths={2}
                 minimumNights={1}
                 startDate={startDate}
@@ -55,7 +56,7 @@ export default function SpotBookings({spotId}){
                 onFocusChange={focusedInput => setFocusedInput(focusedInput)}
                 focusedInput={focusedInput}
             />
-            <button onClick={handleReserve}>Reserve</button>
+            {/* <button onClick={handleReserve}>Reserve</button> */}
         </>
     )
 }
