@@ -95,42 +95,33 @@ li {
     list-style: none;
     border-radius: 12px;
     position: absolute;
-    left: 1120px;
-    top: 75px;
+    right: 70px;
+    top: 60px;
     z-index: 2;
     padding: 0;
 }
 
 .show_menu_element {
-    margin: 20px;
+    cursor: pointer;
+    font-weight: 400;
+    transition: font-weight 0.5s;
+}
+.nav-menu-links-ctn{
+    padding: 20px;
 }
 
-#manage_reviews:hover {
-    font-weight: bold;
+.nav-menu-links-ctn:hover {
+    background-color: rgb(247, 247, 247);
 }
 
-#manage_listings:hover {
-    font-weight: bold;
+#menu-bottom-ctn {
+    border-top: 1px solid #716F81;
 }
 
+#log-out-btn-ctn:hover {
+    border-radius: 0 0 12px 12px;
+}
 .nav_listing_reviews {
     text-decoration: none;
-}
-
-#log_out_button {
-    cursor: pointer;
-    background-color: #716F81;
-    color: azure;
-    height: 50px;
-    border-radius: 20px;
-    border: #716F81;
-    align-items: center;
-    font-weight: bold;
-    font-size: 15px;
-    padding: 15px;
-}
-
-#log_out_button:hover {
-    background-color: rgb(229,31,92);
-    color: white;
+    color: inherit;
 }
