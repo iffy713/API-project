@@ -4,13 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getReviewsOfSpot } from '../../../store/reviews';
 import { getSpotDetails } from '../../../store/spots';
-import SpotBookings from '../../Bookings/SpotBookings';
-import CreateReviewFormModal from '../../CreateReviewModal'
-import ReviewOfSpot from '../../Reviews/ReviewOfSpot';
 import BottomContainer from './BottomContainer';
 import MiddleContainer from './MiddleContainer';
-import './SpotDetails.css'
 import TopContainer from './TopContainer';
+import './SpotDetails.css'
 
 // path: '/spots/:spotId'
 export default function SpotDetails(){
@@ -44,7 +41,7 @@ export default function SpotDetails(){
         <div id="spot_details_container">
             <TopContainer singleSpot={singleSpot}/>
             <MiddleContainer singleSpot={singleSpot} userId={userId} spotId={spotId}/>
-            <BottomContainer spotId={spotId}/>
+            <BottomContainer spotId={spotId} singleSpot={singleSpot}/>
         </div>
     )
 }

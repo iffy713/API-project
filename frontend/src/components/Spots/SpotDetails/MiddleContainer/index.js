@@ -1,15 +1,18 @@
-import { useEffect, useState } from "react";
-import { DateRangePicker, DayPickerRangeController } from "react-dates";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import moment from "moment";
-import CreateReviewFormModal from "../../../CreateReviewModal";
-import './index.css'
+import 'react-dates/initialize';
+import { DateRangePicker, DayPickerRangeController } from "react-dates";
 import { thunkCreateBooking } from "../../../../store/booking";
-import SpotBookings from "../../../Bookings/SpotBookings";
+import CreateReviewFormModal from "../../../CreateReviewModal";
+import SpotBookings from '../../../Bookings/SpotBookings'
+import 'react-dates/lib/css/_datepicker.css';
+import './index.css'
 
 export default function MiddleContainer({singleSpot,userId, spotId}){
 
     const dispatch = useDispatch()
+
     const [ startDate, setStartDate ] = useState(null)
     const [ endDate, setEndDate ] = useState(null)
     const [ focusedInput, setFocusedInput ] = useState(null)
@@ -23,8 +26,13 @@ export default function MiddleContainer({singleSpot,userId, spotId}){
         endDateString = moment(endDate).format("YYYY-MM-DD")
     }
 
+    // const handleClick = () => {
+        //     const picker = document.getElementsByClassName('DateInput_input')
+        //     picker.focus()
+        // }
 
-    const handleReserve = () => {
+        const handleReserve = () => {
+            console.log(startDateString)
         const booking = {
             'startDate': startDateString,
             'endDate': endDateString
@@ -40,21 +48,19 @@ export default function MiddleContainer({singleSpot,userId, spotId}){
                         <h2>Hosted by {singleSpot.Owner.firstName}</h2>
                     </div>
                     <div>
-                        {/* <DateRangePicker /> */}
-                        <DayPickerRangeController
+                        {/* <DateRangePicker
                             numberOfMonths={2}
                             minimumNights={1}
                             startDate={startDate}
                             endDate={endDate}
-                            onDatesChange={({startDate, endDate})=> {
+                            onDatesChange={({startDate, endDate}) => {
                                 setStartDate(startDate)
                                 setEndDate(endDate)
                             }}
                             focusedInput={focusedInput}
                             onFocusChange={focusedInput => setFocusedInput(focusedInput)}
-                            // initialVisibleMonth={()=> moment().add(2,'M')}
-                        />
-                        {/* <SpotBookings /> */}
+                        /> */}
+                        <SpotBookings />
                     </div>
                 </div>
                 <div id='middle-ctn-right'>
@@ -81,6 +87,11 @@ export default function MiddleContainer({singleSpot,userId, spotId}){
                                         <div style={{'display':'flex'}}>
                                             <div style={{'width':'100%'}}>
                                                 <div style={{'position':'relative'}}>
+
+                                                    <div id='DateRangePicker-ctn'>
+                                                        <SpotBookings />
+                                                    </div>
+
                                                     <div id="date-select-btn-ctn">
                                                         <button id='date-select-btn' type="button">
                                                             <div className="date-select-children">

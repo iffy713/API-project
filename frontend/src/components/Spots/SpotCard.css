@@ -18,17 +18,14 @@
 .spot_card_outer {
     margin: auto;
     width: 100%;
+    place-items: center;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    /* grid-gap: 2px; */
+    grid-gap: 2px;
     grid-auto-flow: row dense;
     display: flex;
     flex-wrap: wrap;
-    /* display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start */
-
+    justify-content: flex-start;
 }
 
 .single_card {
