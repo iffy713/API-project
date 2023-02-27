@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react'
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api'
+import './SingleSpotMap.css'
 
 export default function SingleSpotMap({singleSpot}){
 
@@ -32,13 +33,24 @@ export default function SingleSpotMap({singleSpot}){
                 <h3>Where you'll be</h3>
                 <div>{singleSpot.city}, {singleSpot.state}, {singleSpot.country}</div>
             </div>
-            <div>
-                { isLoaded && <GoogleMap
-                    mapContainerStyle={containerStyle}
-                    zoom={8}
-                    center={currentPosition}
-                    onUnmount={onUnmount}
-                /> }
+            <div className='single-spot-map-outer'>
+                { isLoaded && <div>
+                    <GoogleMap
+                        mapContainerStyle={containerStyle}
+                        zoom={8}
+                        center={currentPosition}
+                        onUnmount={onUnmount}
+                    >
+                    <Marker
+                        position={currentPosition}
+                        title={singleSpot.name}
+                        streetView={false}
+                    />
+                    </GoogleMap>
+
+                </div>
+
+                }
             </div>
 
         </div>
