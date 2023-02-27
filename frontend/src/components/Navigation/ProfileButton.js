@@ -45,21 +45,40 @@ function ProfileButton({ user }) {
     </div>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li className="show_menu_element">Hello, {user.username}</li>
-          <li className="show_menu_element">{user.email}</li>
-          <hr></hr>
-          <li id="manage_listings" className="show_menu_element">
-            <NavLink className={'nav_listing_reviews'} exact to={'/my-account/hosts'}>Manage Listings</NavLink>
-          </li>
-          <li id="manage_reviews" className="show_menu_element">
-            <NavLink className={'nav_listing_reviews'} exact to={'/my-account/reviews'}>Manage Reviews</NavLink>
-          </li>
-          <li className="show_menu_element">
-            <NavLink exact to={'/my-account/bookings'}>Manage Bookings</NavLink>
-          </li>
-          <li className="show_menu_element">
-            <button onClick={logout} id="log_out_button">Log Out</button>
-          </li>
+          {/* <div id='menu-top-ctn'>
+              <li className="show_menu_element">
+                Hello, <span style={{'fontWeight':"700"}}>{user.username.toUpperCase()}</span>
+              </li>
+              <li className="show_menu_element">{user.email}</li>
+          </div> */}
+          <div id="menu-middle-ctn">
+            <div className="nav-menu-links-ctn">
+              <li id="manage_listings" className="show_menu_element">
+                <NavLink className={'nav_listing_reviews'} exact to={'/my-account/hosts'}>Manage Listings</NavLink>
+              </li>
+            </div>
+            <div className="nav-menu-links-ctn">
+              <li id="manage_reviews" className="show_menu_element">
+                <NavLink className={'nav_listing_reviews'} exact to={'/my-account/reviews'}>Manage Reviews</NavLink>
+              </li>
+            </div>
+            <div className="nav-menu-links-ctn">
+              <li className="show_menu_element">
+                <NavLink className={'nav_listing_reviews'} exact to={'/my-account/bookings'}>Manage Bookings</NavLink>
+              </li>
+            </div>
+            <div id="menu-bottom-ctn">
+              <div className="nav-menu-links-ctn" id="log-out-btn-ctn">
+                <li className="show_menu_element" onClick={logout}>
+                  Log Out
+                </li>
+              </div>
+            </div>
+          </div>
+              {/* <li className="show_menu_element">
+                <button onClick={logout} id="log_out_button">Log Out</button>
+              </li> */}
+
         </ul>
       )}
     </>
