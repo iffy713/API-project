@@ -60,7 +60,10 @@ export default function MiddleContainer({singleSpot,userId, spotId}){
                             focusedInput={focusedInput}
                             onFocusChange={focusedInput => setFocusedInput(focusedInput)}
                         /> */}
-                        <SpotBookings />
+                        <DayPickerRangeController
+                            
+                        />
+                        {/* <SpotBookings /> */}
                     </div>
                 </div>
                 <div id='middle-ctn-right'>
